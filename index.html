@@ -8,6 +8,7 @@
     <title>MỘC TRÀ - Trà Shan Tuyết Mộc Châu</title>
     <meta content="Trà Shan Tuyết Mộc Châu - đậm vị, thơm hậu tự nhiên. Nhận hàng kiểm tra rồi thanh toán." name="description" />
     <style>
+
         *{box-sizing:border-box}
         :root{--red:#ff3156;--orange:#ff642f;--ink:#222;--muted:#777;--line:#e8e8e8}
         html{scroll-behavior:smooth;scroll-padding-top:68px}
@@ -46,7 +47,7 @@
         .package-options legend{position:absolute;left:-9999px}
         .package-option{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #f0f0f0;cursor:pointer}
         .package-option:last-child{border-bottom:0}.package-option input{accent-color:var(--red);margin:0}
-        .package-copy{display:block;flex:1}.package-copy b{display:block;font-size:13px;font-weight:500}.package-copy small{display:block;color:#777;font-size:12px;margin-top:3px}
+        .package-copy{display:block;flex:1}.package-copy b{display:block;font-size:16px;font-weight:500}.package-copy small{display:block;color:#777;font-size:12px;margin-top:3px}
         .package-price{font-size:13px;color:var(--red);font-weight:800}
         .submit-button{display:block;width:100%;border:0;background:var(--red);color:#fff;font-size:20px;font-weight:900;padding:18px 10px;border-radius:11px;cursor:pointer;box-shadow:0 3px 0 rgba(180,0,40,.12)}
         .form-footnote{text-align:center;color:#888;font-size:10px;line-height:1.4;margin:10px 0 0}
@@ -554,6 +555,149 @@
 .deal-countdown, .deal-countdown span {
   animation:countdownSlowPulse 1.8s ease-in-out infinite !important;
 }
+
+
+.shop-brand {
+    width: 100%;
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg,#fff,#f7fbf4);
+    border-bottom: 1px solid #e4e9e1;
+    box-shadow: 0 2px 9px rgba(0,0,0,.08);
+}
+
+/* LOGO */
+.shop-brand-logo {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    padding: 2px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #2d641f;
+    box-shadow: 0 2px 8px rgba(35,85,25,.18);
+    overflow: hidden;
+}
+
+.shop-brand-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* TÊN SHOP */
+.shop-brand-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.shop-brand-name {
+    color: #20571d;
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: .2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* THÔNG TIN */
+.shop-brand-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+/* ĐÁNH GIÁ */
+.shop-rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.shop-rating b {
+    color: #222;
+    font-size: 14px;
+}
+
+.shop-rating span {
+    color: #f5a623;
+    font-size: 16px;
+}
+
+/* DẤU NGĂN */
+.shop-brand-meta > i {
+    width: 1px;
+    height: 14px;
+    background: #ccc;
+}
+
+/* KHÁCH HÀNG */
+.shop-customers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.shop-customers b {
+    color: #222;
+    font-size: 13px;
+}
+
+.shop-customers em {
+    color: #777;
+    font-style: normal;
+    font-size: 11px;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .shop-brand {
+        min-height: 70px;
+        padding: 7px 10px;
+        gap: 9px;
+    }
+
+    .shop-brand-logo {
+        width: 53px;
+        height: 53px;
+        min-width: 53px;
+    }
+
+    .shop-brand-name {
+        font-size: 15px;
+    }
+
+    .shop-brand-meta {
+        gap: 7px;
+        margin-top: 4px;
+    }
+
+    .shop-rating b {
+        font-size: 12px;
+    }
+
+    .shop-rating span {
+        font-size: 13px;
+    }
+
+    .shop-customers b {
+        font-size: 11px;
+    }
+
+    .shop-customers em {
+        font-size: 10px;
+    }
+}
+
 </style>
 
 <style id="smooth-order-price-attention">
@@ -971,6 +1115,32 @@
                 <div class="tea-shop-proof"><b>✓ Nhiều khách hàng đang quan tâm sản phẩm</b><br />Feedback thật có thể cập nhật thêm tại đây.</div>
             </section>
 
+            <div class="shop-brand">
+              <div class="shop-brand-logo">
+                  <img src="logo.jpg" alt="Nông Sản Mộc Châu Sơn La">
+              </div>
+
+              <div class="shop-brand-info">
+                  <div class="shop-brand-name">
+                      NÔNG SẢN MỘC CHÂU SƠN LA
+                  </div>
+
+                  <div class="shop-brand-meta">
+                      <span class="shop-rating">
+                          <b>4.9</b>
+                          <span>★</span>
+                      </span>
+
+                      <i></i>
+
+                      <span class="shop-customers">
+                          <b>2.5K+</b>
+                          <em>khách hàng đã mua</em>
+                      </span>
+                  </div>
+              </div>
+          </div>
+
             <section class="tea-intro">
                 <div class="tea-intro-card">
                     <h3>🌿 Shan Tuyết Mộc Châu có gì đặc biệt?</h3>
@@ -1049,7 +1219,7 @@
                     </div>
                     <form id="orderForm" onsubmit="return false"><input id="name" name="name" placeholder="Họ và tên" required="" /><input id="phone" name="phone" placeholder="Số điện thoại" required="" type="tel" /><textarea id="address" name="address" placeholder="Địa chỉ nhận hàng" required=""></textarea>
                         <fieldset class="package-options">
-                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="200000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500g - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="350000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1kg - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">350.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="600000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2kg - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">600.000đ</span></label>
+                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="200000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500G - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="350000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1KG - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">350.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="600000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2KG - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">600.000đ</span></label>
                         </fieldset><button class="submit-button" id="submitOrderBtn" type="submit">🔥 ĐẶT HÀNG NGAY</button>
                         <p class="form-footnote">✓ Không cần thanh toán trước • ✓ Nhận hàng kiểm tra rồi thanh toán</p>
                     </form>
