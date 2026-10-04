@@ -1,0 +1,1371 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<title>MỘC TRÀ - Dashboard</title>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    #f5f7f5;
+
+  color:
+    #1f2937;
+
+}
+
+
+.container {
+
+  width:
+    min(1180px, calc(100% - 30px));
+
+  margin:
+    0 auto;
+
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+
+  background:
+    linear-gradient(
+      135deg,
+      #173f2a,
+      #27613f
+    );
+
+  color:
+    white;
+
+  padding:
+    24px 0;
+
+  margin-bottom:
+    24px;
+
+}
+
+
+.header-inner {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+}
+
+
+.brand h1 {
+
+  margin:
+    0 0 5px;
+
+  font-size:
+    25px;
+
+}
+
+
+.brand p {
+
+  margin:
+    0;
+
+  opacity:
+    .8;
+
+  font-size:
+    14px;
+
+}
+
+
+.status {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  font-size:
+    13px;
+
+  background:
+    rgba(255,255,255,.12);
+
+  padding:
+    9px 13px;
+
+  border-radius:
+    30px;
+
+}
+
+
+.status-dot {
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    #65d98b;
+
+}
+
+
+/* ================================
+   DATE
+================================ */
+
+.section-title {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  margin:
+    0 0 14px;
+
+}
+
+
+.section-title h2 {
+
+  margin:
+    0;
+
+  font-size:
+    18px;
+
+}
+
+
+.updated {
+
+  font-size:
+    12px;
+
+  color:
+    #6b7280;
+
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.cards {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap:
+    15px;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.card {
+
+  background:
+    white;
+
+  border-radius:
+    14px;
+
+  padding:
+    20px;
+
+  box-shadow:
+    0 3px 15px rgba(0,0,0,.06);
+
+}
+
+
+.card-label {
+
+  color:
+    #6b7280;
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    10px;
+
+}
+
+
+.card-value {
+
+  font-size:
+    29px;
+
+  font-weight:
+    700;
+
+  color:
+    #173f2a;
+
+}
+
+
+.card-sub {
+
+  margin-top:
+    8px;
+
+  font-size:
+    12px;
+
+  color:
+    #8b929c;
+
+}
+
+
+.online {
+
+  color:
+    #159447;
+
+}
+
+
+/* ================================
+   CHART
+================================ */
+
+.panel {
+
+  background:
+    white;
+
+  border-radius:
+    14px;
+
+  padding:
+    20px;
+
+  box-shadow:
+    0 3px 15px rgba(0,0,0,.06);
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.chart {
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  gap:
+    15px;
+
+  height:
+    270px;
+
+  padding:
+    25px 5px 0;
+
+}
+
+
+.bar-wrap {
+
+  flex:
+    1;
+
+  height:
+    100%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    flex-end;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+}
+
+
+.bar-value {
+
+  font-size:
+    11px;
+
+  color:
+    #6b7280;
+
+}
+
+
+.bar {
+
+  width:
+    min(55px, 80%);
+
+  background:
+    linear-gradient(
+      180deg,
+      #4d9568,
+      #27613f
+    );
+
+  border-radius:
+    7px 7px 2px 2px;
+
+  min-height:
+    4px;
+
+  transition:
+    height .4s ease;
+
+}
+
+
+.bar-date {
+
+  font-size:
+    11px;
+
+  color:
+    #6b7280;
+
+}
+
+
+/* ================================
+   COMPARISON
+================================ */
+
+.compare {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:
+    15px;
+
+}
+
+
+.compare-box {
+
+  border:
+    1px solid #edf0ed;
+
+  border-radius:
+    12px;
+
+  padding:
+    18px;
+
+}
+
+
+.compare-box h3 {
+
+  margin:
+    0 0 15px;
+
+  font-size:
+    15px;
+
+}
+
+
+.compare-row {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  padding:
+    10px 0;
+
+  border-bottom:
+    1px solid #f0f1f0;
+
+  font-size:
+    13px;
+
+}
+
+
+.compare-row:last-child {
+
+  border-bottom:
+    none;
+
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading {
+
+  opacity:
+    .5;
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 800px) {
+
+  .cards {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+  }
+
+  .header-inner {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .container {
+
+    width:
+      calc(100% - 20px);
+
+  }
+
+  .cards {
+
+    gap:
+      10px;
+
+  }
+
+  .card {
+
+    padding:
+      15px;
+
+  }
+
+  .card-value {
+
+    font-size:
+      23px;
+
+  }
+
+  .chart {
+
+    gap:
+      6px;
+
+  }
+
+  .bar {
+
+    width:
+      75%;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+  <div class="container header-inner">
+
+    <div class="brand">
+
+      <h1>MỘC TRÀ</h1>
+
+      <p>
+        Shan Tuyết Cổ Thụ Mộc Châu · Dashboard
+      </p>
+
+    </div>
+
+
+    <div class="status">
+
+      <span class="status-dot"></span>
+
+      <span>
+        Đang kết nối
+      </span>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+  <!-- ==========================
+       TODAY
+  =========================== -->
+
+  <div class="section-title">
+
+    <h2>
+      Tổng quan hôm nay
+    </h2>
+
+    <div
+      class="updated"
+      id="updated"
+    >
+      Đang tải...
+    </div>
+
+  </div>
+
+
+  <div class="cards">
+
+
+    <div class="card">
+
+      <div class="card-label">
+        👁️ Lượt truy cập
+      </div>
+
+      <div
+        class="card-value"
+        id="todayVisits"
+      >
+        -
+      </div>
+
+      <div class="card-sub">
+        Tổng lượt xem trang
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <div class="card-label">
+        👤 Khách duy nhất
+      </div>
+
+      <div
+        class="card-value"
+        id="todayUnique"
+      >
+        -
+      </div>
+
+      <div class="card-sub">
+        Visitor trong ngày
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <div class="card-label">
+        🟢 Đang online
+      </div>
+
+      <div
+        class="card-value online"
+        id="online"
+      >
+        -
+      </div>
+
+      <div class="card-sub">
+        Hoạt động trong 60 giây
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <div class="card-label">
+        📈 So với hôm qua
+      </div>
+
+      <div
+        class="card-value"
+        id="growth"
+      >
+        -
+      </div>
+
+      <div class="card-sub">
+        Lượt truy cập
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ==========================
+       CHART
+  =========================== -->
+
+  <div class="panel">
+
+    <div class="section-title">
+
+      <h2>
+        Traffic 7 ngày
+      </h2>
+
+      <div class="updated">
+        Lượt truy cập
+      </div>
+
+    </div>
+
+
+    <div
+      class="chart"
+      id="chart"
+    >
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================
+       COMPARISON
+  =========================== -->
+
+  <div class="panel">
+
+    <div class="section-title">
+
+      <h2>
+        So sánh
+      </h2>
+
+    </div>
+
+
+    <div class="compare">
+
+
+      <div class="compare-box">
+
+        <h3>
+          Hôm nay
+        </h3>
+
+
+        <div class="compare-row">
+
+          <span>
+            Lượt truy cập
+          </span>
+
+          <strong id="todayVisits2">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="compare-row">
+
+          <span>
+            Khách duy nhất
+          </span>
+
+          <strong id="todayUnique2">
+            -
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="compare-box">
+
+        <h3>
+          Hôm qua
+        </h3>
+
+
+        <div class="compare-row">
+
+          <span>
+            Lượt truy cập
+          </span>
+
+          <strong id="yesterdayVisits">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="compare-row">
+
+          <span>
+            Khách duy nhất
+          </span>
+
+          <strong id="yesterdayUnique">
+            -
+          </strong>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =================================================
+   CONFIG
+================================================= */
+
+const TRAFFIC_API_URL =
+  "https://script.google.com/macros/s/AKfycby71Hw8BqFTl0mdiJWWfkNr6Ic1Q5WcXNwarfwdyLtVRV6ZSMgBvTufhn8H63LYJ1_2/exec";
+
+
+/* =================================================
+   JSONP
+================================================= */
+
+function loadTrafficStats() {
+
+  return new Promise(
+    function(resolve, reject) {
+
+      const callbackName =
+        "mocTraDashboard_" +
+        Date.now();
+
+
+      window[callbackName] =
+        function(data) {
+
+          try {
+
+            delete window[
+              callbackName
+            ];
+
+          }
+          catch(error) {}
+
+
+          if (
+            script.parentNode
+          ) {
+
+            script.parentNode
+              .removeChild(script);
+
+          }
+
+
+          resolve(data);
+
+        };
+
+
+      const script =
+        document.createElement(
+          "script"
+        );
+
+
+      script.src =
+        TRAFFIC_API_URL +
+        "?action=stats" +
+        "&callback=" +
+        callbackName;
+
+
+      script.onerror =
+        function() {
+
+          try {
+
+            delete window[
+              callbackName
+            ];
+
+          }
+          catch(error) {}
+
+
+          if (
+            script.parentNode
+          ) {
+
+            script.parentNode
+              .removeChild(script);
+
+          }
+
+
+          reject(
+            new Error(
+              "Không kết nối được Traffic API."
+            )
+          );
+
+        };
+
+
+      document.body.appendChild(
+        script
+      );
+
+
+      setTimeout(
+        function() {
+
+          if (
+            window[callbackName]
+          ) {
+
+            try {
+
+              delete window[
+                callbackName
+              ];
+
+            }
+            catch(error) {}
+
+            reject(
+              new Error(
+                "Traffic API timeout."
+              )
+            );
+
+          }
+
+        },
+        15000
+      );
+
+    }
+  );
+
+}
+
+
+/* =================================================
+   FORMAT
+================================================= */
+
+function formatNumber(value) {
+
+  return Number(
+    value || 0
+  ).toLocaleString(
+    "vi-VN"
+  );
+
+}
+
+
+/* =================================================
+   RENDER
+================================================= */
+
+function renderDashboard(
+  data
+) {
+
+  if (
+    !data ||
+    !data.success
+  ) {
+
+    throw new Error(
+      data &&
+      data.message
+        ? data.message
+        : "Không lấy được dữ liệu."
+    );
+
+  }
+
+
+  const today =
+    data.today || {};
+
+
+  const yesterday =
+    data.yesterday || {};
+
+
+  document.getElementById(
+    "todayVisits"
+  ).textContent =
+    formatNumber(
+      today.visits
+    );
+
+
+  document.getElementById(
+    "todayUnique"
+  ).textContent =
+    formatNumber(
+      today.uniqueVisitors
+    );
+
+
+  document.getElementById(
+    "online"
+  ).textContent =
+    formatNumber(
+      data.online
+    );
+
+
+  document.getElementById(
+    "todayVisits2"
+  ).textContent =
+    formatNumber(
+      today.visits
+    );
+
+
+  document.getElementById(
+    "todayUnique2"
+  ).textContent =
+    formatNumber(
+      today.uniqueVisitors
+    );
+
+
+  document.getElementById(
+    "yesterdayVisits"
+  ).textContent =
+    formatNumber(
+      yesterday.visits
+    );
+
+
+  document.getElementById(
+    "yesterdayUnique"
+  ).textContent =
+    formatNumber(
+      yesterday.uniqueVisitors
+    );
+
+
+  /*
+   * Tăng trưởng
+   */
+
+  const current =
+    Number(
+      today.visits || 0
+    );
+
+
+  const previous =
+    Number(
+      yesterday.visits || 0
+    );
+
+
+  let growthText =
+    "0%";
+
+
+  if (previous === 0) {
+
+    if (current > 0) {
+
+      growthText =
+        "+100%";
+
+    }
+
+  }
+
+  else {
+
+    const growth =
+      (
+        (current - previous)
+        /
+        previous
+      ) * 100;
+
+
+    const rounded =
+      Math.round(
+        growth
+      );
+
+
+    growthText =
+      (
+        rounded >= 0
+          ? "+"
+          : ""
+      ) +
+      rounded +
+      "%";
+
+  }
+
+
+  document.getElementById(
+    "growth"
+  ).textContent =
+    growthText;
+
+
+  renderChart(
+    data.last7Days || []
+  );
+
+
+  document.getElementById(
+    "updated"
+  ).textContent =
+    "Cập nhật " +
+    new Date()
+      .toLocaleTimeString(
+        "vi-VN"
+      );
+
+}
+
+
+/* =================================================
+   CHART
+================================================= */
+
+function renderChart(
+  days
+) {
+
+  const chart =
+    document.getElementById(
+      "chart"
+    );
+
+
+  chart.innerHTML =
+    "";
+
+
+  if (!days.length) {
+
+    chart.innerHTML =
+      "<div style='margin:auto;color:#777'>Chưa có dữ liệu</div>";
+
+    return;
+
+  }
+
+
+  let max =
+    Math.max(
+      ...days.map(
+        function(item) {
+
+          return Number(
+            item.visits || 0
+          );
+
+        }
+      )
+    );
+
+
+  if (max <= 0) {
+
+    max = 1;
+
+  }
+
+
+  days.forEach(
+    function(item) {
+
+      const visits =
+        Number(
+          item.visits || 0
+        );
+
+
+      const height =
+        Math.max(
+          4,
+          (visits / max) * 200
+        );
+
+
+      const wrap =
+        document.createElement(
+          "div"
+        );
+
+
+      wrap.className =
+        "bar-wrap";
+
+
+      const value =
+        document.createElement(
+          "div"
+        );
+
+
+      value.className =
+        "bar-value";
+
+
+      value.textContent =
+        formatNumber(
+          visits
+        );
+
+
+      const bar =
+        document.createElement(
+          "div"
+        );
+
+
+      bar.className =
+        "bar";
+
+
+      bar.style.height =
+        height + "px";
+
+
+      const date =
+        document.createElement(
+          "div"
+        );
+
+
+      date.className =
+        "bar-date";
+
+
+      const parts =
+        String(
+          item.date || ""
+        ).split("-");
+
+
+      date.textContent =
+        parts.length === 3
+          ? parts[2] + "/" + parts[1]
+          : item.date;
+
+
+      wrap.appendChild(
+        value
+      );
+
+
+      wrap.appendChild(
+        bar
+      );
+
+
+      wrap.appendChild(
+        date
+      );
+
+
+      chart.appendChild(
+        wrap
+      );
+
+    }
+  );
+
+}
+
+
+/* =================================================
+   LOAD
+================================================= */
+
+async function refreshDashboard() {
+
+  try {
+
+    const data =
+      await loadTrafficStats();
+
+
+    renderDashboard(
+      data
+    );
+
+
+  }
+
+  catch(error) {
+
+    console.error(
+      "Dashboard:",
+      error
+    );
+
+
+    document.getElementById(
+      "updated"
+    ).textContent =
+      "Không kết nối được API";
+
+  }
+
+}
+
+
+/* =================================================
+   INIT
+================================================= */
+
+refreshDashboard();
+
+
+/*
+ * Tự cập nhật mỗi 15 giây
+ */
+
+setInterval(
+  refreshDashboard,
+  15000
+);
+
+</script>
+
+
+</body>
+
+</html>
