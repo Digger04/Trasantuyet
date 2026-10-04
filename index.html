@@ -1049,8 +1049,8 @@
                     </div>
                     <form id="orderForm" onsubmit="return false"><input id="name" name="name" placeholder="Họ và tên" required="" /><input id="phone" name="phone" placeholder="Số điện thoại" required="" type="tel" /><textarea id="address" name="address" placeholder="Địa chỉ nhận hàng" required=""></textarea>
                         <fieldset class="package-options">
-                            <legend>Chọn gói</legend><label class="package-option"><input data-price="200000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500g - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input checked="" data-price="350000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1kg - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">350.000đ</span></label><label class="package-option"><input data-price="600000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2kg - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">600.000đ</span></label>
-                        </fieldset><button class="submit-button" onclick="document.getElementById('orderForm').scrollIntoView({behavior:'smooth'})" type="button">🔥 ĐẶT HÀNG NGAY</button>
+                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="200000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500g - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="350000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1kg - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">350.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="600000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2kg - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">600.000đ</span></label>
+                        </fieldset><button class="submit-button" id="submitOrderBtn" type="submit">🔥 ĐẶT HÀNG NGAY</button>
                         <p class="form-footnote">✓ Không cần thanh toán trước • ✓ Nhận hàng kiểm tra rồi thanh toán</p>
                     </form>
                 </div>
@@ -1160,261 +1160,10 @@
 </script>
 
 <script>
-/* ===== POPUP LIÊN TỤC + SEEK BAR =====
-   Có thể thay popupEvents bằng dữ liệu đơn hàng/hoạt động THỰC TẾ.
-*/
-(function(){
-  const popup = document.getElementById('socialPopup');
-  const popupIcon = document.getElementById('popupIcon');
-  const popupTitle = document.getElementById('popupTitle');
-  const popupText = document.getElementById('popupText');
-  const popupClose = document.getElementById('popupClose');
-  const progress = document.getElementById('popupProgress');
-
-  if(!popup || !progress) return;
-
-  /* DỮ LIỆU MẪU — nếu dùng cho website thật, hãy thay bằng hoạt động khách hàng thực tế. */
-  const popupNames = [
-    "Nguyễn Văn Minh","Trần Thị Hương","Lê Văn Nam","Phạm Thị Lan",
-    "Hoàng Văn Tuấn","Đỗ Thị Mai","Bùi Văn Thành","Vũ Thị Ngọc",
-    "Đặng Văn Hùng","Phan Thị Hoa","Nguyễn Thị Linh","Trần Văn Dũng",
-    "Lê Thị Hạnh","Phạm Văn Long","Nguyễn Thị Mai","Hoàng Thị Lan",
-    "Trần Quốc Bảo","Võ Thị Hương","Đỗ Văn Bình","Bùi Thị Nga",
-    "Nguyễn Văn Hùng","Phạm Thị Hằng","Lê Văn Thành","Trần Thị Ngân"
-  ];
-
-  const popupProducts = [
-    "500g Trà Shan Tuyết","1 Kg Trà Shan Tuyết","2 Kg Trà Shan Tuyết"
-  ];
-
-  const popupActions = [
-    {icon:'👀', text:'đang xem sản phẩm'},
-    {icon:'🛒', text:'đang đặt hàng'},
-    {icon:'✓', text:'đã mua sản phẩm'}
-  ];
-
-  /* Khoảng thời gian hiển thị: 1–12 phút trước, ưu tiên các mốc gần đây. */
-  const recentMinutes = [1,2,2,3,3,4,4,5,5,6,7,8,9,10,11,12];
-
-  function randomItem(list){
-    return list[Math.floor(Math.random() * list.length)];
-  }
-
-  function makePopupEvent(){
-    const name = randomItem(popupNames);
-    const product = randomItem(popupProducts);
-    const action = randomItem(popupActions);
-    const minutes = randomItem(recentMinutes);
-    return {
-      icon: action.icon,
-      title: name + ' ' + action.text,
-      text: product + ' • khoảng ' + minutes + ' phút trước'
-    };
-  }
-
-  const SHOW_TIME = 5200;
-  const NEXT_DELAY = 1800;
-
-  let timer = null;
-  let hideTimer = null;
-  let progressFrame = null;
-  let lastName = '';
-  let lastAction = '';
-
-  function nextEvent(){
-    let event;
-    let guard = 0;
-    do {
-      event = makePopupEvent();
-      guard++;
-    } while(guard < 20 && event.title.startsWith(lastName + ' ') && event.title.endsWith(lastAction));
-    lastName = event.title.split(' ')[0] || '';
-    lastAction = event.title.slice(event.title.indexOf(' ') + 1);
-    return event;
-  }
-
-  function stopProgress(){
-    if(progressFrame) cancelAnimationFrame(progressFrame);
-    progressFrame = null;
-  }
-
-  function startProgress(){
-    stopProgress();
-    const start = performance.now();
-    progress.style.transform = 'scaleX(1)';
-
-    function tick(now){
-      const ratio = Math.max(0, 1 - (now - start) / SHOW_TIME);
-      progress.style.transform = 'scaleX(' + ratio + ')';
-      if(ratio > 0){
-        progressFrame = requestAnimationFrame(tick);
-      }
-    }
-    progressFrame = requestAnimationFrame(tick);
-  }
-
-  function hidePopup(delay){
-    clearTimeout(hideTimer);
-    stopProgress();
-    popup.classList.remove('show');
-
-    if(delay){
-      clearTimeout(timer);
-      timer = setTimeout(showPopup, delay);
-    }
-  }
-
-  function showPopup(){
-    clearTimeout(timer);
-    clearTimeout(hideTimer);
-
-    const event = nextEvent();
-    popupIcon.textContent = event.icon;
-    popupTitle.textContent = event.title;
-    popupText.textContent = event.text;
-
-    progress.style.transition = 'none';
-    progress.style.transform = 'scaleX(1)';
-    void progress.offsetWidth;
-    popup.classList.add('show');
-    startProgress();
-
-    hideTimer = setTimeout(function(){
-      hidePopup(NEXT_DELAY);
-    }, SHOW_TIME);
-  }
-
-  popupClose.addEventListener('click', function(){
-    manuallyClosed = true;
-    hidePopup(NEXT_DELAY);
-  });
-
-  /* Hiện popup đầu tiên sau 1.5 giây, sau đó tự lặp liên tục. */
-  setTimeout(showPopup, 1500);
-
-  /* Khi người dùng quay lại tab, tiếp tục chu kỳ nếu popup đang ẩn. */
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden){
-      clearTimeout(timer);
-      clearTimeout(hideTimer);
-      stopProgress();
-    }else if(!popup.classList.contains('show')){
-      timer = setTimeout(showPopup, 1200);
-    }
-  });
-})();
-</script>
-
-<script id="order-form-validation">
 (function () {
-  function getField(selectors) {
-    for (var i = 0; i < selectors.length; i++) {
-      var el = document.querySelector(selectors[i]);
-      if (el) return el;
-    }
-    return null;
-  }
-
-  function clean(value) {
-    return (value || '').trim();
-  }
-
-  function showOrderWarning(message, field) {
-    var old = document.getElementById('orderValidationNotice');
-    if (old) old.remove();
-
-    var notice = document.createElement('div');
-    notice.id = 'orderValidationNotice';
-    notice.textContent = message;
-    notice.style.cssText =
-      'position:fixed;left:50%;top:18px;transform:translateX(-50%);' +
-      'z-index:100001;background:#fff3cd;color:#842029;border:2px solid #ffcc00;' +
-      'border-radius:12px;padding:12px 18px;font-size:15px;font-weight:700;' +
-      'box-shadow:0 6px 22px rgba(0,0,0,.18);max-width:calc(100% - 30px);' +
-      'text-align:center;line-height:1.4;';
-
-    document.body.appendChild(notice);
-
-    if (field) {
-      field.focus({preventScroll:true});
-      field.style.transition = 'box-shadow .2s ease, border-color .2s ease';
-      field.style.borderColor = '#e00000';
-      field.style.boxShadow = '0 0 0 4px rgba(224,0,0,.14)';
-      field.scrollIntoView({behavior:'smooth', block:'center'});
-
-      setTimeout(function () {
-        field.style.borderColor = '';
-        field.style.boxShadow = '';
-      }, 1800);
-    }
-
-    setTimeout(function () {
-      if (notice.parentNode) notice.remove();
-    }, 3000);
-  }
-
-  function getCustomerFields() {
-    return {
-      name: getField([
-        '#orderForm input[name="name"]',
-        '#orderForm input[name="fullname"]',
-        '#orderForm input[name="fullName"]',
-        '#orderForm input[id="name"]',
-        '#orderForm input[id="fullname"]',
-        '#orderForm input[placeholder*="tên" i]',
-        '#orderForm input[placeholder*="họ" i]'
-      ]),
-      phone: getField([
-        '#orderForm input[name="phone"]',
-        '#orderForm input[name="tel"]',
-        '#orderForm input[type="tel"]',
-        '#orderForm input[id="phone"]',
-        '#orderForm input[id="tel"]',
-        '#orderForm input[placeholder*="điện thoại" i]',
-        '#orderForm input[placeholder*="số điện thoại" i]'
-      ]),
-      address: getField([
-        '#orderForm textarea[name="address"]',
-        '#orderForm input[name="address"]',
-        '#orderForm textarea[id="address"]',
-        '#orderForm input[id="address"]',
-        '#orderForm textarea[placeholder*="địa chỉ" i]',
-        '#orderForm input[placeholder*="địa chỉ" i]'
-      ])
-    };
-  }
-
-  function validateOrderForm() {
-    var fields = getCustomerFields();
-
-    if (fields.name && !clean(fields.name.value)) {
-      showOrderWarning('⚠️ Vui lòng nhập HỌ VÀ TÊN trước khi đặt hàng.', fields.name);
-      return false;
-    }
-
-    if (fields.phone && !clean(fields.phone.value)) {
-      showOrderWarning('⚠️ Vui lòng nhập SỐ ĐIỆN THOẠI trước khi đặt hàng.', fields.phone);
-      return false;
-    }
-
-    if (fields.phone && clean(fields.phone.value) &&
-        !/^[0-9+\s().-]{9,15}$/.test(clean(fields.phone.value))) {
-      showOrderWarning('⚠️ Số điện thoại chưa đúng. Vui lòng kiểm tra lại.', fields.phone);
-      return false;
-    }
-
-    if (fields.address && !clean(fields.address.value)) {
-      showOrderWarning('⚠️ Vui lòng nhập ĐỊA CHỈ nhận hàng trước khi đặt hàng.', fields.address);
-      return false;
-    }
-
-    return true;
-  }
-
   function showSuccessPopup() {
     var overlay = document.getElementById('orderSuccessOverlay');
     if (!overlay) return;
-
     overlay.classList.add('show');
     overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -1423,25 +1172,17 @@
   function closeSuccessPopup() {
     var overlay = document.getElementById('orderSuccessOverlay');
     if (!overlay) return;
-
     overlay.classList.remove('show');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
+  // order.js gọi hàm này sau khi POST tới Google Apps Script thành công.
+  window.showOrderSuccessUI = function () {
+    showSuccessPopup();
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
-    var buttons = document.querySelectorAll('.submit-button');
-
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        if (validateOrderForm()) {
-          showSuccessPopup();
-        }
-      });
-    });
-
     var continueBtn = document.getElementById('continueShoppingBtn');
     if (continueBtn) {
       continueBtn.addEventListener('click', closeSuccessPopup);
