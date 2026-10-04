@@ -1012,6 +1012,25 @@
   text-shadow:none !important;
 }
 </style>
+
+<!-- Meta Pixel Code - MOC TRA -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2128053304586450');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 
 <body>
@@ -1347,8 +1366,59 @@
     document.body.style.overflow = '';
   }
 
-  // order.js gọi hàm này sau khi POST tới Google Apps Script thành công.
+  // Meta Pixel: lấy gói khách chọn để gửi đúng giá trị chuyển đổi.
+  function getMetaOrderData() {
+    var selected = document.querySelector('input[name="package"]:checked');
+    var weight = selected ? (selected.dataset.weight || selected.value || '1kg') : '1kg';
+    var unitPrice = selected ? Number(selected.dataset.price || 350000) : 350000;
+    // order.js hiện đặt số lượng mặc định là 1; nếu sau này thêm bộ chọn số lượng,
+    // cập nhật phần này để đọc số lượng thực tế.
+    var quantity = 1;
+    var total = unitPrice * quantity;
+    return {
+      content_name: 'Trà Shan Tuyết Mộc Châu - ' + weight,
+      content_type: 'product',
+      content_ids: ['tra-shan-tuyet-moc-chau-' + weight],
+      value: total,
+      currency: 'VND',
+      num_items: quantity
+    };
+  }
+
+  // ViewContent: xem sản phẩm.
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'ViewContent', {
+      content_name: 'Trà Shan Tuyết Mộc Châu',
+      content_type: 'product',
+      content_ids: ['tra-shan-tuyet-moc-chau'],
+      value: 350000,
+      currency: 'VND'
+    });
+  }
+
+  // InitiateCheckout: chỉ ghi nhận khi form được submit và thông tin cơ bản hợp lệ.
+  var orderFormForPixel = document.getElementById('orderForm');
+  if (orderFormForPixel) {
+    orderFormForPixel.addEventListener('submit', function () {
+      var nameEl = document.getElementById('name');
+      var phoneEl = document.getElementById('phone');
+      var addressEl = document.getElementById('address');
+      if (!nameEl || !phoneEl || !addressEl) return;
+      if (!nameEl.value.trim() || !phoneEl.value.trim() || !addressEl.value.trim()) return;
+      var phone = phoneEl.value.trim().replace(/\s+/g, '').replace(/^\+84/, '0');
+      if (!/^(0)(3|5|7|8|9)[0-9]{8}$/.test(phone)) return;
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'InitiateCheckout', getMetaOrderData());
+      }
+    }, true);
+  }
+
+  // order.js chỉ gọi hàm này sau khi iframe nhận response từ Google Apps Script.
+  // Lưu ý: iframe load xác nhận đã có response, không xác minh nội dung Google Sheet.
   window.showOrderSuccessUI = function () {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', getMetaOrderData());
+    }
     showSuccessPopup();
   };
 
