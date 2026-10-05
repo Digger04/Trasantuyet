@@ -1072,8 +1072,8 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
                 <div class="product-data">
                     <div class="deal-price">
                         <div class="deal-left">
-                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">350.000đ</strong><span class="price-ticket">🔥</span></div>
-                            <div class="price-sub"><del>700.000đ</del><span>-50%</span></div>
+                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">200.000đ</strong><span class="price-ticket">🔥</span></div>
+                            <div class="price-sub"><del>400.000đ</del><span>-50%</span></div>
                         </div>
                         <div class="deal-right">
                             <div class="urgency-text">Ưu đãi giờ vàng! Săn ngay!</div>
@@ -1214,8 +1214,8 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
              <div class="product-data">
                     <div class="deal-price">
                         <div class="deal-left">
-                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">350.000đ</strong><span class="price-ticket">🔥</span></div>
-                            <div class="price-sub"><del>700.000đ</del><span>-50%</span></div>
+                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">200.000đ</strong><span class="price-ticket">🔥</span></div>
+                            <div class="price-sub"><del>400.000đ</del><span>-50%</span></div>
                         </div>
                         <div class="deal-right">
                             <div class="urgency-text">Ưu đãi giờ vàng! Săn ngay!</div>
@@ -1239,7 +1239,7 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
                     </div>
                     <form id="orderForm" onsubmit="return false"><input id="name" name="name" placeholder="Họ và tên" required="" /><input id="phone" name="phone" placeholder="Số điện thoại" required="" type="tel" /><textarea id="address" name="address" placeholder="Địa chỉ nhận hàng" required=""></textarea>
                         <fieldset class="package-options">
-                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="200000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500G - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="350000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1KG - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">350.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="600000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2KG - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">600.000đ</span></label>
+                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="130000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500G - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">130.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="200000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1KG - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="470000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2KG - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">470.000đ</span></label>
                         </fieldset><button class="submit-button" id="submitOrderBtn" type="submit">🔥 ĐẶT HÀNG NGAY</button>
                         <p class="form-footnote">✓ Không cần thanh toán trước • ✓ Nhận hàng kiểm tra rồi thanh toán</p>
                     </form>
@@ -1380,7 +1380,7 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
   function getMetaOrderData() {
     var selected = document.querySelector('input[name="package"]:checked');
     var weight = selected ? (selected.dataset.weight || selected.value || '1kg') : '1kg';
-    var unitPrice = selected ? Number(selected.dataset.price || 350000) : 350000;
+    var unitPrice = selected ? Number(selected.dataset.price || 200000) : 200000;
     // order.js hiện đặt số lượng mặc định là 1; nếu sau này thêm bộ chọn số lượng,
     // cập nhật phần này để đọc số lượng thực tế.
     var quantity = 1;
@@ -1401,7 +1401,7 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
       content_name: 'Trà Shan Tuyết Mộc Châu',
       content_type: 'product',
       content_ids: ['tra-shan-tuyet-moc-chau'],
-      value: 350000,
+      value: 200000,
       currency: 'VND'
     });
   }
