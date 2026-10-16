@@ -1,1019 +1,88 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="vi">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>MỘC TRÀ - Trà Shan Tuyết Mộc Châu</title>
-    <meta content="Trà Shan Tuyết Mộc Châu - đậm vị, thơm hậu tự nhiên. Nhận hàng kiểm tra rồi thanh toán." name="description" />
+    <meta name="description" content="Trà Shan Tuyết Mộc Châu - đậm vị, thơm hậu tự nhiên. Nhận hàng kiểm tra rồi thanh toán.">
     <style>
-
         *{box-sizing:border-box}
-        :root{--red:#ff3156;--orange:#ff642f;--ink:#222;--muted:#777;--line:#e8e8e8}
-        html{scroll-behavior:smooth;scroll-padding-top:68px}
-        body{margin:0;background:#f1f1f1;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-        a{color:inherit;text-decoration:none}
-        .site{max-width:760px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 22px rgba(0,0,0,.06)}
-        .sticky-header{position:sticky;top:0;z-index:20;height:56px;background:rgba(255,255,255,.98);display:flex;align-items:center;justify-content:space-between;padding:0 12px;border-bottom:1px solid #ddd}
-        .tabs{height:100%;display:flex;align-items:center;gap:23px}
-        .tab{height:100%;display:flex;align-items:center;font-size:14px;font-weight:700;border-bottom:2px solid transparent}
-        .tab.active{border-color:#222}
-        .header-cta{background:var(--red);color:#fff;font-size:14px;font-weight:800;padding:11px 17px;border-radius:11px;white-space:nowrap}
-        .product-image{height:420px;position:relative;background:#000;overflow:hidden}
-        .product-image>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-        .image-badges{position:absolute;left:0;bottom:0;display:flex;z-index:8;box-shadow:none}
-        .image-badge{width:108px;min-width:108px;padding:7px 10px 6px;color:#fff;text-align:center;line-height:1.05;box-shadow:0 -2px 8px rgba(0,0,0,.12)}
-        .image-badge b{display:block;font-size:14px;font-weight:900}.image-badge small{display:block;font-size:12px;font-weight:800;margin-top:2px}
-        .shipping-badge{background:#009b63}.warranty-badge{background:#2a2430}
-        .image-count{position:absolute;right:0;bottom:8px;z-index:9;background:rgba(0,0,0,.62);color:#fff;border-radius:16px 0 0 16px;padding:5px 9px 5px 10px;font-size:11px;font-weight:800;line-height:1;box-shadow:0 1px 5px rgba(0,0,0,.18)}
-        .deal-price{position:relative;display:flex;align-items:stretch;justify-content:space-between;gap:8px;background:linear-gradient(100deg,#ff3156 0%,#ff3d49 48%,#ff6430 100%);color:#fff;padding:8px 10px 7px;overflow:hidden;min-height:64px}
-        .deal-left,.deal-right{position:relative;z-index:2}.deal-left{min-width:0;display:flex;flex-direction:column;justify-content:center}.deal-right{min-width:145px;flex:0 0 145px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
-        .price-top{display:flex;align-items:baseline;gap:5px;white-space:nowrap}.price-label{font-size:11px;font-weight:800}.price-top strong{font-size:28px;font-weight:900;line-height:1;letter-spacing:-.6px}.price-ticket{font-size:15px;font-weight:900;display:inline-block;transform:rotate(-8deg)}
-        .price-sub{display:flex;align-items:center;gap:6px;margin-top:5px;padding-left:0}.price-sub del{font-size:11px;opacity:.78}.price-sub>span{font-size:11px;font-weight:900}.deal-right .urgency-text{font-size:11px;font-weight:900;white-space:nowrap;text-align:center;line-height:1.15}.deal-countdown{display:flex;justify-content:center;align-items:center;gap:3px;margin-top:5px}.deal-countdown span{background:transparent!important;color:#fff!important;padding:0!important;font-size:19px;line-height:1;font-weight:900;min-width:19px;text-align:center}.deal-countdown b{font-size:15px;color:#fff;line-height:1;font-weight:900}
-        .product-data h1{font-size:17px;line-height:1.45;margin:11px 13px 8px;font-weight:700}
-        .ratings{display:flex;align-items:center;gap:7px;padding:5px 13px 12px;font-size:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}.ratings b{font-size:16px}.ratings a{color:#1976d2}.ratings i{height:13px;border-left:1px solid #ccc}
-        .stars{color:#ffbd00;letter-spacing:1px;font-size:15px}
-        .shipping-list{padding:3px 12px 8px;border-bottom:8px solid #f4f4f4}
-        .shipping-list>div{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f0f0f0;font-size:12px}.shipping-list>div:last-child{border:0}
-        .shipping-icon{width:27px;height:27px;display:grid;place-items:center;border:1px solid #00a76f;color:#009b68;border-radius:50%;font-weight:800;flex:none}
-        .shipping-list b{font-weight:500}.shipping-list small{display:block;color:#777;margin-top:3px}.shipping-list em{font-style:normal;color:#00a56a}
-        .order-area{padding:16px 12px;background:#fff}
-        .order-card{border-radius:13px;background:#f0f2f3;padding:17px 16px 16px}
-        .order-heading{text-align:center;margin-bottom:15px}.order-heading h2{font-size:19px;margin:2px 0 8px}.order-heading p{font-size:12px;color:#ed3655;margin:0}
-        .order-card form>input,.order-card form>textarea{width:100%;border:0;background:#fff;border-radius:8px;padding:13px 11px;font:inherit;font-size:14px;margin-bottom:10px;outline:0;resize:vertical}
-        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-        .package-options{border:0;margin:0 0 12px;padding:0;background:#fff;border-radius:8px;overflow:hidden}
-        .package-options legend{position:absolute;left:-9999px}
-        .package-option{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #f0f0f0;cursor:pointer}
-        .package-option:last-child{border-bottom:0}.package-option input{accent-color:var(--red);margin:0}
-        .package-copy{display:block;flex:1}.package-copy b{display:block;font-size:16px;font-weight:500}.package-copy small{display:block;color:#777;font-size:12px;margin-top:3px}
-        .package-price{font-size:13px;color:var(--red);font-weight:800}
-        .submit-button{display:block;width:100%;border:0;background:var(--red);color:#fff;font-size:20px;font-weight:900;padding:18px 10px;border-radius:11px;cursor:pointer;box-shadow:0 3px 0 rgba(180,0,40,.12)}
-        .form-footnote{text-align:center;color:#888;font-size:10px;line-height:1.4;margin:10px 0 0}
-        .promo-ribbon{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:linear-gradient(100deg,var(--red),var(--orange));color:#fff}
-        .promo-ribbon b{display:block;font-size:15px}.promo-ribbon small{font-size:11px}.countdown{display:flex;align-items:center;gap:4px;font-weight:900}.countdown span{background:#fff3;color:#fff;border-radius:3px;padding:5px 6px}
-        .details{padding:10px 12px 0}
-        .section-heading{margin:12px 0;display:flex;align-items:center;justify-content:center;text-align:center}.section-heading h2{font-size:17px;margin:0;line-height:1.3}
-        .spec-card{background:#efd2d4;padding:15px 11px}.spec-topline{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.spec-topline h3{font-size:26px;line-height:.9;margin:0;color:#080808}.spec-topline span{background:#24386f;color:#fff;font-size:10px;font-weight:900;padding:5px 7px;border-radius:10px;white-space:nowrap}
-        .notice{font-size:11px;line-height:1.45;margin:13px 0}
-        .spec-content{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:280px}.spec-visual{background:#fff;overflow:hidden}.spec-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-        .spec-table{background:#fff;border:1px dashed #555;border-radius:11px;padding:5px 7px;align-self:stretch}.spec-table div{padding:8px 3px;border-bottom:1px dashed #aaa}.spec-table div:last-child{border:0}.spec-table small{display:block;color:#777;font-size:11px}.spec-table b{display:block;font-size:12px;line-height:1.35;margin-top:3px}
-        .benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.benefits article{border:1px solid #aaa;border-radius:12px;overflow:hidden;text-align:center}.benefits img{width:100%;height:120px;object-fit:cover;display:block}.benefits h3{font-size:13px;margin:8px 4px 3px}.benefits p{font-size:11px;line-height:1.4;color:#666;margin:0;padding:0 7px 10px}
-        .usage-section{background:#efd2d4;margin:25px -2px 0;padding:16px 8px}.usage-section>h2{text-align:center;color:#fff;text-shadow:0 1px 3px #d8757d;font-size:29px;margin:3px 0 18px}.usage-section article{border:1px solid #999;border-radius:13px;background:#fff;overflow:hidden;margin-bottom:17px}.usage-section article:last-child{margin-bottom:0}.usage-section img{width:100%;display:block;max-height:520px;object-fit:cover}.usage-section p{font-size:13px;line-height:1.5;color:#666;text-align:center;padding:0 15px 8px;margin:8px 0}
-        .shop-card{margin:16px 0;background:#fff7e8;padding:16px 14px}.shop-info{display:flex;align-items:center;gap:9px;border-bottom:1px solid #eadfc9;padding-bottom:12px}.shop-info>img{width:48px;height:48px;border-radius:50%;object-fit:cover}.shop-info>div{flex:1}.shop-info>div b{color:#f4511e;font-size:15px}.shop-info small{display:block;font-size:11px;color:#777;margin-top:4px}.shop-info>strong{font-size:12px;white-space:nowrap}.shop-card h3{font-size:16px;margin:17px 0 10px}.shop-card>p{font-size:13px}.shop-card li{font-size:13px;line-height:1.5;margin:0 0 17px}
-        .reviews{padding:10px 12px 18px}.review-overview{display:flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid #eee}.review-overview strong{font-size:20px}.review-overview small{font-size:11px;color:#777}
-        .review{padding:14px 0;border-bottom:1px solid #eee}.review-user{display:flex;align-items:center;gap:9px;margin-bottom:5px}.avatar{width:38px;height:38px;border-radius:50%;background:#272727;color:#fff;display:grid;place-items:center;font-weight:800}.review-user b{display:block;font-size:13px}.review-user .stars{display:block;font-size:12px}.review>small{font-size:10px;color:#888}.review p{font-size:13px;line-height:1.5}.review-images{display:flex;gap:8px}.review-images img{width:118px;height:140px;object-fit:cover}.more-reviews{text-align:center;color:#777;font-size:13px;padding:10px}
-        .final-cta{text-align:center;padding:24px 14px 30px;background:#fff2f3}.final-cta h2{font-size:20px;margin:0 0 7px}.final-cta p{font-size:15px;color:#555}.final-cta p b{font-size:24px;color:var(--red)}.final-cta a{display:block;max-width:360px;margin:14px auto 0;background:var(--red);color:#fff;font-weight:900;padding:16px;border-radius:10px}
-        footer{background:#050505;color:#fff;text-align:center;padding:28px 15px 82px}footer>img{width:62px;height:62px;border-radius:50%;object-fit:cover}footer h2{font-size:18px;color:#ff6b2c;margin:8px 0}footer p{font-size:12px;margin:8px 0;line-height:1.5}footer .hours{color:#aaa;font-size:11px}
-        .bottom-bar{position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);height:58px;display:grid;grid-template-columns:.8fr 1.2fr;gap:8px;background:#fff;padding:7px 10px calc(7px + env(safe-area-inset-bottom));border-top:1px solid #ddd}.bottom-bar a{display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:14px;font-weight:900}.bottom-bar .call{border:1px solid var(--red);color:var(--red)}.bottom-bar .buy{background:var(--red);color:#fff}
-        
-        /* ===== HIỆU ỨNG THU HÚT CHO GIÁ + NÚT ĐẶT HÀNG ===== */
-        @keyframes pricePulse{
-          0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(255,255,255,0))}
-          45%{transform:scale(1.055);filter:drop-shadow(0 0 10px rgba(255,255,255,.78))}
-          60%{transform:scale(1.02);filter:drop-shadow(0 0 4px rgba(255,255,255,.5))}
-        }
-        @keyframes priceFlash{
-          0%,100%{opacity:1}
-          48%{opacity:.78}
-          55%{opacity:1}
-        }
-        @keyframes badgePop{
-          0%,100%{transform:scale(1) rotate(0)}
-          50%{transform:scale(1.1) rotate(-2deg)}
-        }
-        @keyframes buttonPulse{
-          0%,100%{transform:scale(1);box-shadow:0 4px 0 rgba(190,0,45,.22),0 0 0 0 rgba(255,49,86,.38)}
-          50%{transform:scale(1.035);box-shadow:0 4px 0 rgba(190,0,45,.18),0 0 0 9px rgba(255,49,86,0)}
-        }
-        @keyframes buttonShine{
-          0%{left:-120%;opacity:0}
-          12%{opacity:1}
-          35%,100%{left:130%;opacity:0}
-        }
-        @keyframes cartBounce{
-          0%,100%{transform:translateY(0)}
-          50%{transform:translateY(-2px)}
-        }
-        .deal-price{
-          position:relative;
-          overflow:hidden;
-          isolation:isolate;
-        }
-        .deal-price::after{
-          content:"";
-          position:absolute;
-          z-index:0;
-          top:-35%;
-          left:-15%;
-          width:28%;
-          height:170%;
-          background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
-          transform:skewX(-18deg);
-          animation:dealSweep 3.1s ease-in-out infinite;
-        }
-        .deal-price>*{position:relative;z-index:1}
-        .price-top strong{
-          display:inline-block;
-          transform-origin:center;
-          animation:pricePulse 1.65s ease-in-out infinite,priceFlash 2.4s ease-in-out infinite;
-          text-shadow:0 0 2px rgba(255,255,255,.2),0 0 12px rgba(255,255,255,.32);
-        }
-        .price-top span{
-          display:inline-block;
-          animation:badgePop 1.8s ease-in-out infinite;
-          box-shadow:0 2px 7px rgba(0,0,0,.12);
-        }
-        @keyframes dealSweep{
-          0%,42%{left:-35%;opacity:0}
-          50%{opacity:1}
-          72%,100%{left:135%;opacity:0}
-        }
-        .bottom-bar .buy,
-        .header-cta,
-        .order-card .submit-button,
-        .last-call a{
-          position:relative;
-          overflow:hidden;
-          isolation:isolate;
-          animation:buttonPulse 1.55s ease-in-out infinite;
-          transition:transform .18s ease,filter .18s ease;
-        }
-        .bottom-bar .buy::after,
-        .header-cta::after,
-        .order-card .submit-button::after,
-        .last-call a::after{
-          content:"";
-          position:absolute;
-          z-index:0;
-          top:-30%;
-          left:-120%;
-          width:38%;
-          height:160%;
-          background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
-          transform:skewX(-20deg);
-          animation:buttonShine 2.8s ease-in-out infinite;
-        }
-        .bottom-bar .buy>*,
-        .header-cta>*,
-        .order-card .submit-button>*,
-        .last-call a>*{position:relative;z-index:1}
-        .bottom-bar .buy{font-size:14px;text-shadow:0 1px 1px rgba(0,0,0,.16)}
-        .bottom-bar .buy{animation:buttonPulse 1.35s ease-in-out infinite,cartBounce 1.35s ease-in-out infinite}
-        .order-card .submit-button{box-shadow:0 4px 0 rgba(190,0,45,.22);text-shadow:0 1px 1px rgba(0,0,0,.18)}
-        .header-cta{box-shadow:0 3px 0 rgba(190,0,45,.2)}
-        .last-call a{display:inline-flex}
-        @media (prefers-reduced-motion:reduce){
-          .price-top strong,.price-top span,.deal-price::after,.bottom-bar .buy,.header-cta,
-          .order-card .submit-button,.last-call a,
-          .bottom-bar .buy::after,.header-cta::after,.order-card .submit-button::after,.last-call a::after{
-            animation:none!important;
-          }
-        }
-        
-        @media(min-width:761px){body{padding:0 16px}.site{box-shadow:0 0 28px #00000012}.bottom-bar{bottom:12px;border:0;border-radius:12px;box-shadow:0 0 18px #0002}}
-        @media(max-width:390px){.sticky-header{padding:0 9px}.tabs{gap:15px}.tab{font-size:12px}.header-cta{font-size:12px;padding:10px 12px}.product-image{height:355px}.price-top strong{font-size:25px}.product-data h1{font-size:15px}.spec-topline h3{font-size:23px}.spec-content{min-height:245px}.benefits img{height:95px}.section-heading h2{font-size:15px}}
-        
-        
-        /* ===== BỔ SUNG: giá nhấp nháy + gallery vuốt + countdown ===== */
-        @keyframes salePriceAttention{
-          0%,100%{transform:scale(1);filter:brightness(1);text-shadow:0 0 0 rgba(255,255,255,0)}
-          8%{transform:scale(1.08);filter:brightness(1.18);text-shadow:0 0 16px rgba(255,255,255,.72)}
-          18%{transform:scale(.98);filter:brightness(1)}
-          30%{transform:scale(1.05);filter:brightness(1.1);text-shadow:0 0 12px rgba(255,255,255,.52)}
-          45%,100%{transform:scale(1);filter:brightness(1);text-shadow:0 0 0 rgba(255,255,255,0)}
-        }
-        @keyframes priceBadgeFlash{
-          0%,100%{transform:scale(1);box-shadow:0 0 0 rgba(255,255,255,0)}
-          50%{transform:scale(1.08);box-shadow:0 0 14px rgba(255,255,255,.55)}
-        }
-        @keyframes urgencyText{
-          0%,100%{opacity:1}
-          50%{opacity:.58}
-        }
-        @keyframes countdownAttention{
-          0%,100%{transform:scale(1)}
-          50%{transform:scale(1.06)}
-        }
-        .product-image{touch-action:pan-y;user-select:none}
-        .gallery-track{height:100%;display:flex;will-change:transform}
-        .gallery-slide{height:100%;min-width:100%;flex:0 0 100%;overflow:hidden}
-        .gallery-slide img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none}
-        .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.38);color:#fff;font-size:28px;line-height:28px;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(2px)}
-        .gallery-prev{left:9px}.gallery-next{right:9px}
-        .gallery-dots{position:absolute;z-index:4;left:50%;bottom:11px;transform:translateX(-50%);display:flex;gap:5px;align-items:center;padding:4px 7px;border-radius:20px;background:rgba(0,0,0,.32)}
-        .gallery-dot{width:6px;height:6px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.6);cursor:pointer;transition:.2s}
-        .gallery-dot.active{width:18px;border-radius:5px;background:#fff}
-        .swipe-hint{position:absolute;z-index:3;left:50%;top:12px;transform:translateX(-50%);padding:5px 9px;border-radius:14px;background:rgba(0,0,0,.34);color:#fff;font-size:10px;opacity:.8;pointer-events:none;animation:urgencyText 2.4s ease-in-out 2}
-        .image-count{z-index:5}
-        .sale-price{display:inline-block;transform-origin:center;animation:salePriceAttention 1.65s ease-in-out infinite}
-        .price-top>span{animation:priceBadgeFlash 1.8s ease-in-out infinite}
-        .urgency-text{display:inline-block;animation:urgencyText 1.15s ease-in-out infinite}
-        .promo-ribbon .countdown{animation:countdownAttention 1s ease-in-out infinite}
-        .promo-ribbon.last-minutes .countdown span{background:#fff;color:#ff1744;box-shadow:0 0 10px rgba(255,255,255,.5)}
-        .promo-ribbon.timer-ended .countdown span{background:#555;color:#fff}
-        @media (max-width:600px){
-          .gallery-arrow{display:none}
-          .gallery-dots{display:none}
-          .swipe-hint{display:none}
-          .product-image{height:390px}
-          .image-badge{width:108px;min-width:108px}
-          .image-count{bottom:8px}
-          .deal-price{min-height:64px;padding:8px 9px 7px;gap:5px}
-          .price-label{font-size:10px}
-          .price-top strong{font-size:28px}
-          .price-ticket{font-size:14px}
-          .price-sub{margin-top:4px}
-          .deal-right{min-width:142px;flex-basis:142px}
-          .deal-right .urgency-text{font-size:10px}
-          .deal-countdown span{font-size:18px;min-width:18px}
-        }
-        @media (prefers-reduced-motion:reduce){
-          .sale-price,.price-top>span,.urgency-text,.promo-ribbon .countdown{animation:none!important}
-        }
-        
-        
-        /* ===== TĂNG HIỆU ỨNG GIÁ + NÚT ĐẶT HÀNG ===== */
-        @keyframes salePriceStrong {
-          0%,100% { transform:scale(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-          12% { transform:scale(1.12); text-shadow:0 0 18px rgba(255,255,255,.9); }
-          24% { transform:scale(.99); }
-          38% { transform:scale(1.07); text-shadow:0 0 13px rgba(255,255,255,.7); }
-          52% { transform:scale(1); }
-        }
-        @keyframes priceBoxGlow {
-          0%,100% { box-shadow:inset 0 0 0 rgba(255,255,255,0); }
-          50% { box-shadow:inset 0 0 28px rgba(255,255,255,.10); }
-        }
-        @keyframes buyPulse {
-          0%,100% { transform:scale(1); box-shadow:0 4px 0 rgba(174,0,38,.22),0 0 0 0 rgba(255,49,86,0); }
-          50% { transform:scale(1.035); box-shadow:0 4px 0 rgba(174,0,38,.18),0 0 0 9px rgba(255,49,86,.12); }
-        }
-        @keyframes buyShine {
-          0% { left:-120%; opacity:0; }
-          15% { opacity:.9; }
-          35%,100% { left:125%; opacity:0; }
-        }
-        .deal-price { animation:priceBoxGlow 1.7s ease-in-out infinite; }
-        .sale-price { animation:salePriceStrong 1.45s ease-in-out infinite; }
-        .submit-button,.final-cta a,.bottom-bar .buy,.header-cta {
-          position:relative; overflow:hidden; isolation:isolate;
-          animation:buyPulse 1.55s ease-in-out infinite;
-        }
-        .submit-button::after,.final-cta a::after,.bottom-bar .buy::after,.header-cta::after {
-          content:""; position:absolute; top:0; bottom:0; width:38%; left:-120%;
-          background:linear-gradient(100deg,transparent,rgba(255,255,255,.62),transparent);
-          transform:skewX(-20deg); pointer-events:none; animation:buyShine 2.7s ease-in-out infinite; z-index:2;
-        }
-        .submit-button:hover,.final-cta a:hover,.bottom-bar .buy:hover,.header-cta:hover { filter:brightness(1.08); }
-        .bottom-bar { grid-template-columns:1fr!important; }
-        .bottom-bar .buy { width:100%; font-size:15px; min-height:44px; }
-        @media (prefers-reduced-motion:reduce){
-         .deal-price,.sale-price,.submit-button,.final-cta a,.bottom-bar .buy,.header-cta,.submit-button::after,.final-cta a::after,.bottom-bar .buy::after,.header-cta::after { animation:none!important; }
-        }
-        
-        /* ===== GIÁ + ƯU ĐÃI GIỜ VÀNG THEO MẪU ===== */
-        .deal-price::after{content:"";position:absolute;z-index:1;top:-40%;left:-30%;width:25%;height:180%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-18deg);animation:dealBarShine 2.7s ease-in-out infinite}
-        @keyframes dealBarShine{0%,35%{left:-30%;opacity:0}45%{opacity:1}70%,100%{left:130%;opacity:0}}
-        .deal-countdown{animation:countdownAttention 1.1s ease-in-out infinite}
-        .deal-countdown.last-five span{background:#fff!important;color:#ff3156!important;padding:2px 3px!important;border-radius:3px}
-        @media(max-width:390px){.image-badge{min-width:92px;padding:6px 8px}.image-badge b{font-size:12px}.image-badge small{font-size:10px}.deal-price{padding-left:10px;padding-right:10px}.price-label{font-size:10px}.price-top strong{font-size:24px}.deal-right{min-width:140px}.deal-right .urgency-text{font-size:10px}.deal-countdown span{font-size:17px}}
-        
-        
-        /* ===== HIỆU ỨNG GIỜ VÀNG: GIÁ + NÚT ĐẶT MUA ===== */
-        @keyframes goldenPulse{
-          0%,100%{transform:scale(1);filter:brightness(1);}
-          18%{transform:scale(1.07);filter:brightness(1.12);}
-          35%{transform:scale(.98);filter:brightness(1);}
-          52%{transform:scale(1.045);filter:brightness(1.08);}
-          68%{transform:scale(1);filter:brightness(1);}
-        }
-        @keyframes goldenGlow{
-          0%,100%{box-shadow:0 0 0 rgba(255,255,255,0);}
-          25%{box-shadow:0 0 18px rgba(255,255,255,.72);}
-          55%{box-shadow:0 0 7px rgba(255,255,255,.32);}
-        }
-        @keyframes buyGoldenPulse{
-          0%,100%{transform:scale(1);box-shadow:0 4px 0 rgba(174,0,38,.24),0 0 0 0 rgba(255,49,86,0);}
-          18%{transform:scale(1.055);box-shadow:0 4px 0 rgba(174,0,38,.18),0 0 0 7px rgba(255,49,86,.10);}
-          35%{transform:scale(.985);}
-          52%{transform:scale(1.035);box-shadow:0 4px 0 rgba(174,0,38,.20),0 0 0 4px rgba(255,49,86,.06);}
-          68%{transform:scale(1);}
-        }
-        .sale-price{
-          display:inline-block;
-          transform-origin:center;
-          animation:goldenPulse 1.1s ease-in-out infinite, goldenGlow 1.1s ease-in-out infinite !important;
-          will-change:transform,filter;
-        }
-        .header-cta, .submit-button{
-          animation:buyGoldenPulse 1.1s ease-in-out infinite !important;
-          transform-origin:center;
-          will-change:transform,box-shadow;
-        }
-        .deal-countdown{
-          animation:goldenPulse 1.1s ease-in-out infinite !important;
-          transform-origin:center;
-        }
-        @media (prefers-reduced-motion:reduce){
-          .sale-price,.header-cta,.submit-button,.deal-countdown{animation:none!important}
-        }
-
-        /* ===== HIỆU ỨNG GIỜ VÀNG MẠNH - GIÁ + NÚT + COUNTDOWN ===== */
-        @keyframes goldenPriceStrong {
-          0%,100% { transform:scale(1); filter:brightness(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-          12% { transform:scale(1.18); filter:brightness(1.28); text-shadow:0 0 18px rgba(255,255,255,.95); }
-          24% { transform:scale(.90); filter:brightness(1); text-shadow:0 0 3px rgba(255,255,255,.25); }
-          38% { transform:scale(1.10); filter:brightness(1.18); text-shadow:0 0 14px rgba(255,255,255,.8); }
-          52% { transform:scale(.97); filter:brightness(1); }
-          66% { transform:scale(1.04); }
-          78%,100% { transform:scale(1); }
-        }
-        @keyframes goldenBuyStrong {
-          0%,100% { transform:scale(1); box-shadow:0 4px 0 rgba(174,0,38,.25),0 0 0 0 rgba(255,49,86,0); }
-          12% { transform:scale(1.10); box-shadow:0 5px 0 rgba(174,0,38,.18),0 0 0 10px rgba(255,49,86,.16),0 0 22px rgba(255,80,100,.35); }
-          25% { transform:scale(.94); box-shadow:0 3px 0 rgba(174,0,38,.20),0 0 0 0 rgba(255,49,86,0); }
-          40% { transform:scale(1.07); box-shadow:0 5px 0 rgba(174,0,38,.20),0 0 0 7px rgba(255,49,86,.10),0 0 18px rgba(255,80,100,.28); }
-          55% { transform:scale(.98); }
-          70% { transform:scale(1.03); }
-          82%,100% { transform:scale(1); }
-        }
-        @keyframes goldenCountdownStrong {
-          0%,100% { transform:scale(1); filter:brightness(1); }
-          15% { transform:scale(1.13); filter:brightness(1.3); }
-          30% { transform:scale(.92); filter:brightness(1); }
-          48% { transform:scale(1.08); filter:brightness(1.18); }
-          65%,100% { transform:scale(1); }
-        }
-        .sale-price {
-          display:inline-block !important;
-          transform-origin:center !important;
-          animation:goldenPriceStrong 1.05s ease-in-out infinite !important;
-          will-change:transform,filter,text-shadow !important;
-          position:relative;
-          z-index:3 !important;
-        }
-        .header-cta,
-        .submit-button {
-          animation:goldenBuyStrong 1.05s ease-in-out infinite !important;
-          transform-origin:center !important;
-          will-change:transform,box-shadow !important;
-          z-index:5;
-        }
-        .deal-countdown {
-          animation:goldenCountdownStrong 1.05s ease-in-out infinite !important;
-          transform-origin:center !important;
-          will-change:transform,filter !important;
-        }
-        .deal-countdown span {
-          display:inline-block !important;
-          transform-origin:center !important;
-        }
-        .deal-countdown span {
-          animation:goldenCountdownStrong 1.05s ease-in-out infinite !important;
-        }
-        /* Không để thiết lập prefers-reduced-motion phía trên làm mất hiệu ứng này */
-        @media (prefers-reduced-motion:reduce){
-          .sale-price,.header-cta,.submit-button,.deal-countdown,.deal-countdown span{
-            animation:goldenPriceStrong 1.05s ease-in-out infinite !important;
-          }
-        }
-
-
-        /* ===== CHỈNH NHỊP HIỆU ỨNG GIỜ VÀNG - CHẬM HƠN + NHÁY CẢ MỨC GIÁ ===== */
-        @keyframes goldenPriceSlow {
-          0%,100% { transform:scale(1); filter:brightness(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-          18% { transform:scale(1.10); filter:brightness(1.16); text-shadow:0 0 14px rgba(255,255,255,.75); }
-          34% { transform:scale(.97); filter:brightness(1); }
-          50% { transform:scale(1.06); filter:brightness(1.10); text-shadow:0 0 10px rgba(255,255,255,.55); }
-          68%,100% { transform:scale(1); filter:brightness(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-        }
-        @keyframes goldenBuySlow {
-          0%,100% { transform:scale(1); box-shadow:0 4px 0 rgba(174,0,38,.25),0 0 0 0 rgba(255,49,86,0); }
-          20% { transform:scale(1.055); box-shadow:0 5px 0 rgba(174,0,38,.18),0 0 0 7px rgba(255,49,86,.12),0 0 18px rgba(255,80,100,.25); }
-          38% { transform:scale(.98); box-shadow:0 4px 0 rgba(174,0,38,.20),0 0 0 0 rgba(255,49,86,0); }
-          55% { transform:scale(1.035); box-shadow:0 5px 0 rgba(174,0,38,.18),0 0 0 5px rgba(255,49,86,.08),0 0 14px rgba(255,80,100,.20); }
-          72%,100% { transform:scale(1); box-shadow:0 4px 0 rgba(174,0,38,.25),0 0 0 0 rgba(255,49,86,0); }
-        }
-        @keyframes goldenCountdownSlow {
-          0%,100% { transform:scale(1); filter:brightness(1); }
-          22% { transform:scale(1.08); filter:brightness(1.18); }
-          40% { transform:scale(.97); filter:brightness(1); }
-          58% { transform:scale(1.05); filter:brightness(1.10); }
-          72%,100% { transform:scale(1); }
-        }
-        /* Chỉ nhấp nháy GIÁ ƯU ĐÃI 350.000đ; giá gạch ngang giữ nguyên */
-        .sale-price {
-          /* 350.000đ nháy/phóng to thu nhỏ giống nút Đặt mua ngay */
-          animation:goldenBuySlow 1.8s ease-in-out infinite !important;
-          display:inline-block !important;
-          transform-origin:center !important;
-          will-change:transform,box-shadow;
-        }
-        .price-sub del,
-        .price-sub > span,
-        .price-top .price-label,
-        .price-top .price-ticket {
-          animation:none !important;
-          transform:none !important;
-          filter:none !important;
-          text-shadow:none !important;
-        }
-        .header-cta,
-        .submit-button { animation:goldenBuySlow 1.8s ease-in-out infinite !important; }
-        .deal-countdown { animation:goldenCountdownSlow 1.8s ease-in-out infinite !important; }
-        .deal-countdown span { animation:goldenCountdownSlow 1.8s ease-in-out infinite !important; }
-
-        /* ===== MỘC TRÀ CONTENT MERGE ===== */
-        .product-image .gallery-slide img{object-position:center}
-        .product-data h1{white-space:pre-line}
-        .tea-intro{padding:16px 12px 8px}
-        .tea-intro-card{background:#fff8f0;border-radius:13px;padding:14px;border:1px solid #f0dfcc}
-        .tea-intro-card h3{margin:0 0 8px;font-size:17px;color:#222}
-        .tea-intro-card p{margin:0;font-size:13px;line-height:1.6;color:#555}
-        .tea-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-        .tea-feature{background:#fff;border:1px solid #eee;border-radius:10px;padding:10px}
-        .tea-feature b{display:block;font-size:12px;margin-bottom:4px}.tea-feature span{font-size:11px;line-height:1.4;color:#666}
-        .tea-info{padding:10px 12px 18px}
-        .tea-info h2,.tea-reviews h2{font-size:18px;text-align:center;margin:16px 0 12px}
-        .tea-info-box{border:1px solid #e7e7e7;border-radius:12px;overflow:hidden}
-        .tea-info-row{display:flex;justify-content:space-between;gap:10px;padding:11px 12px;border-bottom:1px solid #eee;font-size:12px}.tea-info-row:last-child{border-bottom:0}.tea-info-row span{color:#777}.tea-info-row b{text-align:right}
-        .tea-photo{margin:12px 0;border-radius:12px;overflow:hidden}.tea-photo img{display:block;width:100%;max-height:360px;object-fit:cover}
-        .tea-usage{background:#fff4f4;padding:12px;border-radius:12px;margin-top:12px}.tea-usage h3{margin:0 0 8px;font-size:16px}.tea-usage p{font-size:12px;line-height:1.55;color:#666;margin:0 0 8px}.tea-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.tea-step{background:#fff;border:1px solid #eee;border-radius:9px;padding:9px;text-align:center}.tea-step b{display:block;font-size:12px}.tea-step span{font-size:10px;color:#777}
-        .tea-reviews{padding:10px 12px 18px;background:#fff}
-        .tea-review-summary{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;border-bottom:1px solid #eee}.tea-review-summary strong{font-size:22px}.tea-review{padding:14px 0;border-bottom:1px solid #eee}.tea-review:last-child{border-bottom:0}.tea-review-user{display:flex;align-items:center;gap:9px;margin-bottom:6px}.tea-review-avatar{width:38px;height:38px;border-radius:50%;background:#272727;color:#fff;display:grid;place-items:center;font-weight:800}.tea-review-user b{display:block;font-size:13px}.tea-review-user small{display:block;color:#009b63;font-size:10px;margin-top:2px}.tea-review .stars{display:block;font-size:12px}.tea-review p{font-size:13px;line-height:1.5;margin:8px 0}.tea-review img{width:118px;height:140px;object-fit:cover;border-radius:6px}
-        .tea-shop-proof{margin:12px 0;background:#fff7e8;border-radius:12px;padding:13px;font-size:12px;line-height:1.5;color:#555}.tea-shop-proof b{color:#f4511e}
-        @media(max-width:390px){.tea-steps{grid-template-columns:1fr}.tea-feature-grid{grid-template-columns:1fr 1fr}}
-    
-/* ===== POPUP THÔNG BÁO HOẠT ĐỘNG ===== */
-.social-popup{
-  position:fixed;
-  left:50%;
-  bottom:76px;
-  transform:translateX(-50%) translateY(18px);
-  width:min(390px,calc(100vw - 28px));
-  min-height:64px;
-  background:rgba(255,255,255,.97);
-  border-radius:16px;
-  box-shadow:0 8px 30px rgba(0,0,0,.18);
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  gap:11px;
-  padding:10px 38px 12px 13px;
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  overflow:hidden;
-  transition:opacity .35s ease,transform .35s ease,visibility .35s ease;
-  border:1px solid rgba(0,0,0,.05);
-}
-.social-popup.show{
-  opacity:1;
-  visibility:visible;
-  transform:translateX(-50%) translateY(0);
-}
-.social-popup-icon{
-  width:39px;height:39px;min-width:39px;
-  border-radius:50%;
-  background:#f3faed;
-  display:grid;place-items:center;
-  font-size:22px;
-  box-shadow:inset 0 0 0 1px rgba(70,130,45,.08);
-}
-.social-popup-content{min-width:0;line-height:1.2}
-.social-popup-title{
-  display:block;
-  font-size:12px;
-  font-weight:800;
-  color:#28734b;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.social-popup-text{
-  display:block;
-  margin-top:4px;
-  color:#777;
-  font-size:10px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.social-popup-close{
-  position:absolute;
-  top:50%;
-  right:10px;
-  transform:translateY(-50%);
-  width:25px;height:25px;
-  border:0;background:transparent;
-  color:#999;font-size:19px;line-height:25px;
-  padding:0;cursor:pointer;
-}
-.social-popup-progress{
-  position:absolute;
-  left:0;bottom:0;
-  width:100%;height:3px;
-  background:#e9e9e9;
-}
-.social-popup-progress i{
-  display:block;
-  width:100%;height:100%;
-  background:linear-gradient(90deg,#65a934,#2d8c48);
-  transform-origin:left center;
-  transform:scaleX(1);
-}
-@media(max-width:600px){
-  .social-popup{bottom:70px;width:calc(100vw - 24px);min-height:62px;border-radius:14px}
-  .social-popup-icon{width:36px;height:36px;min-width:36px}
-}
-
+        html{scroll-behavior:smooth;scroll-padding-top:62px}
+        body{margin:0;background:#f2f2f2;color:#222;font-family:Arial,Helvetica,sans-serif}
+        button,input,textarea{font:inherit}
+        a{text-decoration:none;color:inherit}
+        .site{max-width:760px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 0 25px rgba(0,0,0,.07)}
+        .header{position:sticky;top:0;z-index:50;height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 11px;border-bottom:1px solid #ddd}
+        .header-title{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .header-buy{background:#ff3d22;color:#fff;border:0;border-radius:9px;padding:10px 15px;font-weight:900;font-size:13px;white-space:nowrap;animation:buyPulse 1.8s ease-in-out infinite}
+        .gallery{height:430px;position:relative;overflow:hidden;background:#fff;touch-action:pan-y;user-select:none}
+        .track{height:100%;display:flex;transition:transform .45s ease}
+        .slide{min-width:100%;height:100%;flex:0 0 100%;display:flex;align-items:center;justify-content:center;background:#fff}
+        .slide img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
+        .arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:25px;cursor:pointer}
+        .prev{left:9px}.next{right:9px}
+        .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:5px;background:rgba(0,0,0,.3);padding:5px 8px;border-radius:20px}
+        .dot{width:7px;height:7px;border:0;border-radius:50%;background:#ddd;padding:0}.dot.active{width:18px;border-radius:6px;background:#fff}
+        .count{position:absolute;right:0;bottom:9px;background:rgba(0,0,0,.58);color:#fff;padding:5px 10px;border-radius:15px 0 0 15px;font-size:11px;font-weight:800}
+        .hero{padding:12px 13px 9px}
+        .hero h1{font-size:20px;line-height:1.4;margin:0 0 7px}
+        .rating{display:flex;align-items:center;gap:7px;font-size:12px}.rating b{font-size:16px}.stars{color:#ffb900;letter-spacing:1px;font-size:16px}
+        .deal{margin-top:11px;background:linear-gradient(105deg,#ff3154,#ff5a21);color:#fff;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;overflow:hidden}
+        .price-label{font-size:11px;font-weight:800}.price{display:inline-block;font-size:31px;font-weight:950;line-height:1.05;margin-top:2px;animation:pricePulse 1.65s ease-in-out infinite}
+        .old{display:block;font-size:11px;opacity:.8;margin-top:4px}.deal-right{text-align:center;min-width:145px}.urgency{font-size:11px;font-weight:900}.timer{display:flex;justify-content:center;align-items:center;gap:3px;margin-top:5px;font-weight:900}.timer span{font-size:19px;min-width:20px}.timer b{font-size:15px}
+        .quick-points{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px 12px;border-bottom:7px solid #f3f3f3}
+        .quick{border:1px solid #eee;border-radius:9px;padding:9px 5px;text-align:center;font-size:10px;line-height:1.35}.quick strong{display:block;font-size:20px;margin-bottom:3px}
+        .order-box{margin:13px 12px;padding:14px;background:#f3f4f5;border-radius:13px}
+        .order-title{text-align:center}.order-title h2{margin:2px 0 5px;font-size:19px}.order-title p{margin:0 0 12px;font-size:12px;color:#ef3152}
+        .packages{display:grid;gap:7px;margin-bottom:11px}
+        .pkg{position:relative;border:1.5px solid #ddd;border-radius:9px;background:#fff;padding:10px 10px;cursor:pointer;display:flex;align-items:center;gap:8px}
+        .pkg.selected{border-color:#ff3154;background:#fff6f7;box-shadow:0 0 0 1px #ff3154}
+        .pkg input{accent-color:#ff3154}
+        .pkg-main{flex:1}.pkg-main b{display:block;font-size:14px}.pkg-main small{display:block;color:#777;font-size:11px;margin-top:3px}
+        .pkg-price{font-size:14px;color:#ff3154;font-weight:900;text-align:right}.pkg-price small{display:block;color:#777;font-weight:500;font-size:10px}
+        .field{width:100%;border:1px solid #ddd;border-radius:8px;background:#fff;padding:13px 11px;margin-bottom:9px;outline:0}
+        .field:focus{border-color:#ff3154;box-shadow:0 0 0 2px #ff31541a}
+        .submit{width:100%;border:0;border-radius:10px;background:#ff3154;color:#fff;padding:16px 10px;font-size:20px;font-weight:950;cursor:pointer;animation:buyPulse 1.55s ease-in-out infinite;box-shadow:0 4px 0 #c81738}
+        .note{text-align:center;color:#777;font-size:10px;line-height:1.45;margin:9px 0 0}
+        .section{padding:15px 12px}.section h2{text-align:center;font-size:19px;margin:4px 0 13px}
+        .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+        .feature{border:1px solid #eee;border-radius:11px;padding:12px;background:#fff}
+        .feature .ico{font-size:25px}.feature b{display:block;font-size:14px;margin-top:5px}.feature p{font-size:11px;color:#666;line-height:1.45;margin:5px 0 0}
+        .info{background:#fff8ec;border-radius:12px;padding:13px;margin-top:11px}
+        .info p{font-size:13px;line-height:1.55;margin:5px 0}.info ul{padding-left:20px;margin:8px 0}.info li{font-size:13px;line-height:1.55;margin-bottom:5px}
+        .images img{width:100%;display:block;border-radius:10px;margin:9px 0}
+        /* Customer review section: responsive image sizing fix */
+        .tea-reviews{border-top:8px solid #f3f3f3;padding:15px 12px 20px;background:#fff;overflow:hidden}
+        .tea-reviews h2{text-align:center;font-size:19px;line-height:1.4;margin:4px 0 13px}
+        .tea-review-summary{text-align:center;border-bottom:1px solid #eee;padding:0 0 12px;display:flex;flex-direction:column;align-items:center;gap:3px}
+        .tea-review-summary strong{font-size:23px;line-height:1.2}
+        .tea-review-summary small{font-size:11px;color:#777}
+        .tea-review{padding:13px 0;border-bottom:1px solid #eee;min-width:0;overflow:hidden}
+        .tea-review-user{display:flex;align-items:center;gap:8px;min-width:0}
+        .tea-review-user>div{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+        .tea-review-user b{font-size:13px;line-height:1.35}
+        .tea-review-user small{font-size:10px;color:#009b63;line-height:1.35}
+        .tea-review-avatar{width:38px;height:38px;min-width:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;background:#222;color:#fff;font-weight:900;font-size:14px}
+        .tea-review p{font-size:13px;line-height:1.5;margin:8px 0;overflow-wrap:anywhere}
+        .tea-review .stars{display:inline-block;color:#ffb900;letter-spacing:1px;font-size:14px;line-height:1.2}
+        .tea-review img{display:block;width:auto!important;height:auto!important;max-width:100%;max-height:300px;object-fit:contain;object-position:left center;border-radius:8px;margin:8px 0 0;border:1px solid #eee}
+        .tea-shop-proof{margin-top:13px;padding:12px;background:#f7faf5;border:1px solid #e4eadf;border-radius:9px;font-size:12px;line-height:1.5;color:#555}
+        .tea-shop-proof b{color:#227548}
+        @media(max-width:390px){.tea-reviews{padding-left:10px;padding-right:10px}.tea-review img{max-height:240px}}
+        .reviews{border-top:8px solid #f3f3f3;padding:15px 12px 20px}.review-summary{text-align:center;border-bottom:1px solid #eee;padding-bottom:12px}.review-summary strong{font-size:23px}.review{padding:13px 0;border-bottom:1px solid #eee}.review-user{display:flex;align-items:center;gap:8px}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#222;color:#fff;font-weight:900}.review-user b{font-size:13px}.review p{font-size:13px;line-height:1.5;margin:8px 0}.verified{color:#009b63;font-size:10px}
+        .review-buy{display:flex;align-items:center;justify-content:center;width:96%;margin:13px auto 3px;padding:14px 18px;background:linear-gradient(135deg,#ff4d00,#ff1f00);color:#fff;border-radius:10px;font-size:18px;font-weight:900;animation:reviewPulse 1.8s ease-in-out infinite;box-shadow:0 5px 15px #ff3c002d}
+        .shop{background:#f7faf5;margin-top:12px;padding:15px 13px;border-top:1px solid #e4eadf;border-bottom:1px solid #e4eadf}.shop b{font-size:16px}.shop p{font-size:12px;color:#666;line-height:1.5}
+        .final{background:#fff2f3;text-align:center;padding:24px 13px 84px}.final h2{margin:0 0 7px;font-size:20px}.final p{color:#666}.final strong{color:#ff3154;font-size:27px}.final a{display:block;max-width:420px;margin:13px auto 0;padding:16px;background:#ff3154;color:#fff;border-radius:10px;font-size:19px;font-weight:950;animation:buyPulse 1.55s infinite}
+        .bottom{position:fixed;z-index:100;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);background:#fff;border-top:1px solid #ddd;padding:7px 9px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1.55fr;gap:7px}.bottom a{display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:900;font-size:14px;padding:12px}.bottom .price-mini{border:1px solid #ff3154;color:#ff3154}.bottom .buy-mini{background:#ff3154;color:#fff;animation:buyPulse 1.55s infinite}
+        .success{position:fixed;inset:0;background:rgba(247,252,248,.97);z-index:999;display:none;align-items:center;justify-content:center;padding:20px}.success.show{display:flex}.success-card{text-align:center;max-width:500px}.success-icon{width:76px;height:76px;border-radius:50%;background:#e3f4e9;color:#1c664a;display:grid;place-items:center;font-size:47px;margin:auto auto 20px}.success h2{font-size:27px;color:#195940;margin:0 0 10px}.success p{color:#737a76;line-height:1.55;font-size:14px}.success button{width:100%;border:0;border-radius:12px;background:#d18a24;color:#fff;padding:15px;font-weight:900;margin-top:10px}
+        @keyframes pricePulse{0%,100%{transform:scale(1)}45%{transform:scale(1.065)}60%{transform:scale(1.025)}}
+        @keyframes buyPulse{0%,100%{transform:scale(1);box-shadow:0 4px 0 rgba(174,0,38,.2)}50%{transform:scale(1.035);box-shadow:0 5px 0 rgba(174,0,38,.15),0 0 0 7px rgba(255,49,86,.09)}}
+        @keyframes reviewPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+        @media(max-width:390px){.gallery{height:360px}.hero h1{font-size:18px}.price{font-size:27px}.deal-right{min-width:132px}.timer span{font-size:17px}.quick strong{font-size:18px}.feature-grid{gap:7px}}
+        @media(prefers-reduced-motion:reduce){.price,.submit,.header-buy,.final a,.bottom .buy-mini,.review-buy{animation:none}}
     </style>
-
-<style id="final-attention-fix">
-/* ===== HIỆU ỨNG CUỐI: GIÁ 350.000đ + COUNTDOWN + SLIDE TỰ ĐỘNG ===== */
-@keyframes salePriceBlinkSlow {
-  0%,100% { transform:scale(1); filter:brightness(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-  18% { transform:scale(1.10); filter:brightness(1.16); text-shadow:0 0 16px rgba(255,255,255,.78); }
-  32% { transform:scale(.97); filter:brightness(1); }
-  50% { transform:scale(1.06); filter:brightness(1.10); text-shadow:0 0 11px rgba(255,255,255,.55); }
-  66%,100% { transform:scale(1); filter:brightness(1); text-shadow:0 0 0 rgba(255,255,255,0); }
-}
-.sale-price {
-  display:inline-block !important;
-  transform-origin:center center !important;
-  animation:salePriceBlinkSlow 1.8s ease-in-out infinite !important;
-  will-change:transform,filter,text-shadow;
-}
-/* Giá gạch ngang và -50% giữ nguyên, không nháy */
-.price-sub del, .price-sub > span { animation:none !important; transform:none !important; }
-@keyframes countdownSlowPulse {
-  0%,100% { transform:scale(1); }
-  50% { transform:scale(1.06); }
-}
-.deal-countdown, .deal-countdown span {
-  animation:countdownSlowPulse 1.8s ease-in-out infinite !important;
-}
-
-
-.shop-brand {
-    width: 100%;
-    min-height: 82px;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    padding: 8px 14px;
-    background: linear-gradient(135deg,#fff,#f7fbf4);
-    border-bottom: 1px solid #e4e9e1;
-    box-shadow: 0 2px 9px rgba(0,0,0,.08);
-}
-
-/* LOGO */
-.shop-brand-logo {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    padding: 2px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #2d641f;
-    box-shadow: 0 2px 8px rgba(35,85,25,.18);
-    overflow: hidden;
-}
-
-.shop-brand-logo img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* TÊN SHOP */
-.shop-brand-info {
-    min-width: 0;
-    flex: 1;
-}
-
-.shop-brand-name {
-    color: #20571d;
-    font-size: 19px;
-    font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: .2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* THÔNG TIN */
-.shop-brand-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-/* ĐÁNH GIÁ */
-.shop-rating {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-}
-
-.shop-rating b {
-    color: #222;
-    font-size: 14px;
-}
-
-.shop-rating span {
-    color: #f5a623;
-    font-size: 16px;
-}
-
-/* DẤU NGĂN */
-.shop-brand-meta > i {
-    width: 1px;
-    height: 14px;
-    background: #ccc;
-}
-
-/* KHÁCH HÀNG */
-.shop-customers {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.shop-customers b {
-    color: #222;
-    font-size: 13px;
-}
-
-.shop-customers em {
-    color: #777;
-    font-style: normal;
-    font-size: 11px;
-}
-
-/* MOBILE */
-@media (max-width: 500px) {
-    .shop-brand {
-        min-height: 70px;
-        padding: 7px 10px;
-        gap: 9px;
-    }
-
-    .shop-brand-logo {
-        width: 53px;
-        height: 53px;
-        min-width: 53px;
-    }
-
-    .shop-brand-name {
-        font-size: 15px;
-    }
-
-    .shop-brand-meta {
-        gap: 7px;
-        margin-top: 4px;
-    }
-
-    .shop-rating b {
-        font-size: 12px;
-    }
-
-    .shop-rating span {
-        font-size: 13px;
-    }
-
-    .shop-customers b {
-        font-size: 11px;
-    }
-
-    .shop-customers em {
-        font-size: 10px;
-    }
-}
-
-</style>
-
-<style id="smooth-order-price-attention">
-/* ===== HIỆU ỨNG MƯỢT: NÚT ĐẶT HÀNG + GIÁ ƯU ĐÃI ===== */
-@keyframes smoothBuyAttention {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 4px 0 rgba(174,0,38,.22), 0 0 0 rgba(255,49,86,0);
-    text-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-
-  50% {
-    transform: scale(1.035);
-    box-shadow: 0 5px 0 rgba(174,0,38,.18), 0 0 16px rgba(255,70,90,.18);
-    text-shadow: 0 0 7px rgba(255,255,255,.35);
-  }
-}
-
-.order-card .submit-button,
-.header-cta,
-.sale-price {
-  animation: smoothBuyAttention 2.0s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, box-shadow, text-shadow;
-}
-
-/* Giá chỉ zoom + phát sáng nhẹ, không tạo bóng khối gây nhòe */
-.sale-price {
-  display: inline-block !important;
-  box-shadow: none !important;
-}
-
-/* Giá gạch ngang và phần % giữ nguyên */
-.price-sub del,
-.price-sub > span {
-  animation: none !important;
-  transform: none !important;
-  filter: none !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .order-card .submit-button,
-  .header-cta,
-  .sale-price {
-    animation: smoothBuyAttention 2.0s ease-in-out infinite !important;
-  }
-}
-</style>
-
-
-<style id="success-order-popup-style">
-/* ===== POPUP ĐẶT HÀNG THÀNH CÔNG ===== */
-.order-success-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(247, 252, 248, .96);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .25s ease, visibility .25s ease;
-}
-
-.order-success-overlay.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.order-success-card {
-  width: min(100%, 540px);
-  text-align: center;
-  transform: translateY(10px) scale(.98);
-  transition: transform .3s ease;
-}
-
-.order-success-overlay.show .order-success-card {
-  transform: translateY(0) scale(1);
-}
-
-.order-success-icon {
-  width: 78px;
-  height: 78px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #e4f4e9;
-  color: #16543e;
-  font-size: 50px;
-  line-height: 1;
-  font-weight: 500;
-}
-
-.order-success-title {
-  margin: 0 0 12px;
-  color: #18563f;
-  font-size: 29px;
-  line-height: 1.2;
-  font-weight: 800;
-}
-
-.order-success-text {
-  margin: 0 auto 28px;
-  max-width: 470px;
-  color: #727b76;
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-.order-success-continue {
-  width: 100%;
-  min-height: 56px;
-  border: 0;
-  border-radius: 14px;
-  padding: 0 22px;
-  background: linear-gradient(135deg, #e5aa3b, #c77a1c);
-  color: #fff;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 7px 18px rgba(199, 122, 28, .22);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.order-success-continue:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 9px 22px rgba(199, 122, 28, .28);
-}
-
-@media (max-width: 600px) {
-  .order-success-overlay {
-    padding: 16px;
-  }
-
-  .order-success-icon {
-    width: 72px;
-    height: 72px;
-    font-size: 45px;
-    margin-bottom: 20px;
-  }
-
-  .order-success-title {
-    font-size: 26px;
-  }
-
-  .order-success-text {
-    font-size: 14px;
-    margin-bottom: 24px;
-  }
-}
-</style>
-
-
-<style id="faster-wider-attention">
-/* ===== TĂNG TỐC + TĂNG BIÊN ĐỘ NHÁY ===== */
-@keyframes fasterBuyAttention {
-  0%,100% {
-    transform: scale(1);
-    box-shadow: 0 4px 0 rgba(174,0,38,.22), 0 0 0 rgba(255,49,86,0);
-    filter: brightness(1);
-  }
-  18% {
-    transform: scale(1.075);
-    box-shadow: 0 5px 0 rgba(174,0,38,.16), 0 0 20px rgba(255,70,90,.32);
-    filter: brightness(1.10);
-  }
-  34% {
-    transform: scale(.965);
-    box-shadow: 0 3px 0 rgba(174,0,38,.18), 0 0 0 rgba(255,49,86,0);
-    filter: brightness(1);
-  }
-  52% {
-    transform: scale(1.055);
-    box-shadow: 0 5px 0 rgba(174,0,38,.16), 0 0 16px rgba(255,70,90,.24);
-    filter: brightness(1.07);
-  }
-  70%,100% {
-    transform: scale(1);
-    box-shadow: 0 4px 0 rgba(174,0,38,.22), 0 0 0 rgba(255,49,86,0);
-    filter: brightness(1);
-  }
-}
-
-@keyframes fasterCountdownAttention {
-  0%,100% {
-    transform: scale(1);
-    filter: brightness(1);
-    text-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-  20% {
-    transform: scale(1.14);
-    filter: brightness(1.25);
-    text-shadow: 0 0 13px rgba(255,255,255,.75);
-  }
-  36% {
-    transform: scale(.93);
-    filter: brightness(1);
-  }
-  54% {
-    transform: scale(1.09);
-    filter: brightness(1.16);
-    text-shadow: 0 0 10px rgba(255,255,255,.55);
-  }
-  72%,100% {
-    transform: scale(1);
-    filter: brightness(1);
-    text-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-}
-
-/* Đặt mua ngay + Đặt hàng */
-.header-cta,
-.order-card .submit-button,
-.bottom-bar .buy,
-.final-cta a {
-  animation: fasterBuyAttention .82s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, box-shadow, filter;
-}
-
-/* Đồng hồ ƯU ĐÃI GIỜ VÀNG */
-.deal-countdown {
-  animation: fasterCountdownAttention .72s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, filter, text-shadow;
-}
-
-.deal-countdown span {
-  animation: fasterCountdownAttention .72s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, filter, text-shadow;
-}
-
-/* Giữ hiệu ứng sáng chạy nhanh hơn trên nút */
-.submit-button::after,
-.final-cta a::after,
-.bottom-bar .buy::after,
-.header-cta::after {
-  animation-duration: 1.45s !important;
-}
-
-/* Giá ưu đãi cũng nhanh hơn, biên độ rộng hơn */
-.sale-price {
-  animation: fasterBuyAttention .88s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, box-shadow, filter;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .header-cta,
-  .order-card .submit-button,
-  .bottom-bar .buy,
-  .final-cta a,
-  .deal-countdown,
-  .deal-countdown span,
-  .sale-price {
-    animation: fasterBuyAttention .82s ease-in-out infinite !important;
-  }
-}
-</style>
-
-<style id="full-promo-price-attention">
-/* ===== GIÁ ƯU ĐÃI: CHỈ NHÁY/ZOOM, KHÔNG MỜ ===== */
-@keyframes fullPromoPriceSharp {
-  0%,100% { transform:scale(1); }
-  18% { transform:scale(1.065); }
-  34% { transform:scale(.975); }
-  52% { transform:scale(1.045); }
-  70%,100% { transform:scale(1); }
-}
-
-.price-top {
-  display:inline-flex !important;
-  align-items:center !important;
-  transform-origin:center center !important;
-  animation:fullPromoPriceSharp .82s ease-in-out infinite !important;
-  will-change:transform;
-  opacity:1 !important;
-  filter:none !important;
-  text-shadow:none !important;
-}
-
-/* Toàn bộ chữ trong dòng giá luôn rõ, không nhấp nháy độ sáng */
-.price-top .price-label,
-.price-top .sale-price,
-.price-top .price-ticket {
-  animation:none !important;
-  transform:none !important;
-  opacity:1 !important;
-  filter:none !important;
-  text-shadow:none !important;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:geometricPrecision;
-}
-
-/* Giá gạch ngang và -50% giữ nguyên, không nháy */
-.price-sub,
-.price-sub del,
-.price-sub > span {
-  animation:none !important;
-  transform:none !important;
-  opacity:1 !important;
-  filter:none !important;
-  text-shadow:none !important;
-}
-</style>
-
-<!-- Meta Pixel Code - MOC TRA -->
+<!-- Meta Pixel Code - copied from index -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -1025,6 +94,13 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2128053304586450');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Trà Shan Tuyết Mộc Châu',
+  content_type: 'product',
+  content_ids: ['tra-shan-tuyet-moc-chau'],
+  value: 200000,
+  currency: 'VND'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
@@ -1034,414 +110,435 @@ src="https://www.facebook.com/tr?id=2128053304586450&ev=PageView&noscript=1"
 </head>
 
 <body>
-
-<div class="order-success-overlay" id="orderSuccessOverlay" aria-hidden="true">
-  <div class="order-success-card" role="dialog" aria-modal="true" aria-labelledby="orderSuccessTitle">
-    <div class="order-success-icon" aria-hidden="true">✓</div>
-    <h2 class="order-success-title" id="orderSuccessTitle">Đặt hàng thành công!</h2>
-    <p class="order-success-text">
-      Cảm ơn bạn đã lựa chọn Mộc Trà. Bên mình sẽ liên hệ xác nhận đơn hàng trong thời gian sớm nhất.
-    </p>
-    <button class="order-success-continue" type="button" id="continueShoppingBtn">
-      ← TIẾP TỤC XEM SẢN PHẨM
-    </button>
-  </div>
-</div>
-
     <div class="site">
-        <header class="sticky-header">
-            <nav aria-label="Điều hướng sản phẩm" class="tabs"><a class="tab active" href="#tong-quan">Tổng quan</a><a class="tab" href="#danh-gia">Đánh giá</a><a class="tab" href="#mo-ta">Mô tả</a></nav><a class="header-cta" href="#dat-hang">Đặt mua ngay</a>
+        <header class="header">
+            <div class="header-title">🍃 MỘC TRÀ · TRÀ SHAN TUYẾT</div>
+            <button class="header-buy" type="button" onclick="scrollToOrder()">🛒 MUA NGAY</button>
         </header>
-        <main>
-            <section class="product" id="tong-quan">
-                <div aria-label="Thư viện ảnh sản phẩm" class="product-image" id="productGallery">
-                    <div class="gallery-track" id="galleryTrack">
-                        <div class="gallery-slide"><img alt="Trà Shan Tuyết Mộc Châu - ảnh 1" src="h.png" /></div>
-                        <div class="gallery-slide"><img alt="Trà Shan Tuyết Mộc Châu - ảnh 2" src="thumb.png" /></div>
-                        <div class="gallery-slide"><img alt="Đóng gói trà Mộc Trà - ảnh 3" src="h1.jpg" /></div>
-                        <div class="gallery-slide"><img alt="Pha trà Shan Tuyết - ảnh 4" src="h2.jpg" /></div>
-                    </div>
-                    <div class="image-badges">
-                        <div class="image-badge shipping-badge"><b>Miễn Phí</b><small>Vận Chuyển</small></div>
-                        <div class="image-badge warranty-badge"><b>Uy Tín</b><small>Hàng Đầu</small></div>
-                    </div>
-                    <div class="image-count" id="imageCount">1/4</div><button aria-label="Ảnh trước" class="gallery-arrow gallery-prev" type="button">‹</button><button aria-label="Ảnh sau" class="gallery-arrow gallery-next" type="button">›</button>
-                    <div class="gallery-dots" id="galleryDots"><button aria-label="Ảnh 1" class="gallery-dot active" type="button"></button><button aria-label="Ảnh 2" class="gallery-dot" type="button"></button><button aria-label="Ảnh 3" class="gallery-dot" type="button"></button><button aria-label="Ảnh 4" class="gallery-dot" type="button"></button></div>
-                    <div class="swipe-hint">Vuốt để xem ảnh</div>
+
+        <section class="gallery" id="gallery">
+            <div class="track" id="track">
+                <div class="slide"><img src="h.png" alt="Trà Shan Tuyết Mộc Châu"></div>
+                <div class="slide"><img src="thumb.png" alt="Sản phẩm trà Shan Tuyết Mộc Châu"></div>
+                <div class="slide"><img src="h1.jpg" alt="Cánh trà Shan Tuyết"></div>
+                <div class="slide"><img src="h2.jpg" alt="Pha trà Shan Tuyết"></div>
+            </div>
+            <button class="arrow prev" id="prev" aria-label="Ảnh trước">‹</button>
+            <button class="arrow next" id="next" aria-label="Ảnh tiếp">›</button>
+            <div class="dots" id="dots"></div>
+            <div class="count" id="count">1/4</div>
+        </section>
+
+        <section class="hero">
+            <h1>Trà Shan Tuyết Mộc Châu đậm vị, thơm hậu tự nhiên</h1>
+            <div class="rating"><b>4.9/5</b><span class="stars">★★★★★</span><span>(6) · Được nhiều khách hàng lựa chọn</span></div>
+            <div class="deal">
+                <div>
+                    <div class="price-label">🔥 GIÁ ƯU ĐÃI</div>
+                    <div class="price">200.000đ</div>
+                    <span class="old">Giá gốc 400.000đ · Ưu đãi -50%</span>
                 </div>
-                <div class="product-data">
-                    <div class="deal-price">
-                        <div class="deal-left">
-                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">200.000đ</strong><span class="price-ticket">🔥</span></div>
-                            <div class="price-sub"><del>400.000đ</del><span>-50%</span></div>
-                        </div>
-                        <div class="deal-right">
-                            <div class="urgency-text">Ưu đãi giờ vàng! Săn ngay!</div>
-                            <div class="countdown deal-countdown" data-minutes="29" id="promoCountdown"><span class="cd-hours">00</span><b>:</b><span class="cd-minutes">29</span><b>:</b><span class="cd-seconds">00</span></div>
-                        </div>
-                    </div>
-                    <h1>Trà Shan Tuyết Mộc Châu đậm vị, thơm hậu tự nhiên</h1>
-                    <div class="ratings"><b>4.9 /5</b><span class="stars">★★★★★</span><a href="#danh-gia">(6)</a><i></i><span>Được nhiều khách hàng lựa chọn</span></div>
-                    <div class="shipping-list">
-                        <div><span class="shipping-icon">🚚</span><span><b>Miễn phí vận chuyển</b><small>Giao hàng tận nơi</small></span></div>
-                        <div><span class="shipping-icon">₫</span><span><b>Thanh toán khi nhận hàng</b><small>Nhận hàng kiểm tra rồi thanh toán</small></span></div>
-                        <div><span class="shipping-icon">✓</span><span><b>Đóng gói cẩn thận</b><small>Kiểm tra sản phẩm trước khi gửi</small></span></div>
-                    </div>
+                <div class="deal-right">
+                    <div class="urgency">⏰ ƯU ĐÃI GIỜ VÀNG</div>
+                    <div class="timer"><span id="mm">29</span><b>:</b><span id="ss">59</span></div>
+                    <div style="font-size:10px;margin-top:3px">Phút : Giây</div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-             <section class="tea-reviews" id="danh-gia">
-                <h2>⭐ Đánh giá của khách hàng (3245 bình luận)</h2>
-                <div class="tea-review-summary"><strong>4.9/5</strong><span class="stars">★★★★★</span><small>Khách hàng đã mua</small></div>
-                <div id="teaReviewList">
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">A</span>
-                            <div><b>Anh A.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>ok ngon và giá cả hợp lý mình cảm nhận trà uống rất đậm đà và thơm</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f2.jpg" />
-                    </article>
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">H</span>
-                            <div><b>Chị H.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>Trà uống không bị quá chát. thơm, ngọt hậu vị lâu. màu tự nhiên mình đã đặt thêm để biếu</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f1.jpg" />
-                    </article>
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">M</span>
-                            <div><b>Anh M.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>Trà rất ngon, khi uống sẽ có vị chát nhẹ, sau ngọt thanh, uống tới nước thứ 3 vẫn ngon, để cả ngày không bị đỏ</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f3.jpg" />
-                    </article>
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">T</span>
-                            <div><b>Chị T.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>Trà rất thơm và ngon, nước trà xanh và thơm ngát. Giao hàng nhiệt tình ạ</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f4.jpg" />
-                    </article>
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">N</span>
-                            <div><b>Anh N.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>Sản phẩm uống rất được nước, ngọt hâu, giá thành quá tốt để trải nghiệm</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f5.jpg" />
-                    </article>
-                    <article class="tea-review">
-                        <div class="tea-review-user"><span class="tea-review-avatar">L</span>
-                            <div><b>Chị L.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
-                        </div>
-                        <p>Nước xanh ngọt hậu trà ngon non lắm. Trước mua 1 kg uống hết rồi giờ mua thêm 2 kg</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f6.jpg" />
-                    </article>
-                </div>
-                <div class="tea-shop-proof"><b>✓ Nhiều khách hàng đang quan tâm sản phẩm</b><br />Feedback thật có thể cập nhật thêm tại đây.</div>
-            </section>
+        <section class="quick-points">
+            <div class="quick"><strong>🍃</strong><b>Hương thơm tự nhiên</b><br>Hậu vị dễ chịu</div>
+            <div class="quick"><strong>🫖</strong><b>Đậm vị trà</b><br>Dễ pha thưởng thức</div>
+            <div class="quick"><strong>🚚</strong><b>Giao tận nơi</b><br>Kiểm tra rồi thanh toán</div>
+        </section>
 
-            <div class="shop-brand">
-              <div class="shop-brand-logo">
-                  <img src="logo.jpg" alt="Nông Sản Mộc Châu Sơn La">
-              </div>
+        <section class="order-box" id="dat-hang">
+            <div class="order-title">
+                <h2>🛒 ĐẶT HÀNG NGAY</h2>
+                <p>Chọn số bộ để nhận mức giá tốt hơn</p>
+            </div>
 
-              <div class="shop-brand-info">
-                  <div class="shop-brand-name">
-                      NÔNG SẢN MỘC CHÂU SƠN LA
-                  </div>
+            <div class="packages" id="packages">
+                <label class="pkg">
+                    <input type="radio" name="package" value="500g" data-weight="500g" data-price="130000" data-shipping="0">
+                    <span class="pkg-main"><b>500G – Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span>
+                    <span class="pkg-price">130.000đ<small>500 gram</small></span>
+                </label>
+                <label class="pkg selected">
+                    <input type="radio" name="package" value="1kg" data-weight="1kg" data-price="200000" data-shipping="0" checked>
+                    <span class="pkg-main"><b>1KG – Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span>
+                    <span class="pkg-price">200.000đ<small>ƯU ĐÃI</small></span>
+                </label>
+                <label class="pkg">
+                    <input type="radio" name="package" value="2kg" data-weight="2kg" data-price="380000" data-shipping="0">
+                    <span class="pkg-main"><b>2KG – Gói gia đình</b><small>Tiết kiệm hơn</small></span>
+                    <span class="pkg-price">380.000đ<small>2 kilogram</small></span>
+                </label>
+            </div>
 
-                  <div class="shop-brand-meta">
-                      <span class="shop-rating">
-                          <b>4.9</b>
-                          <span>★</span>
-                      </span>
+            <div id="orderSummary" style="background:#fff;border-radius:8px;padding:10px;margin-bottom:10px;font-size:12px;line-height:1.55">
+                <b>Đơn hàng:</b> <span id="summaryPackage">1KG – Gói tiết kiệm</span><br>
+                <span>Tiền hàng: </span><b id="summaryPrice">200.000đ</b> ·
+                <span>Phí ship: </span><b id="summaryShip">0đ</b><br>
+                <span>Tổng thanh toán: </span><b id="summaryTotal" style="color:#ff3154;font-size:16px">200.000đ</b>
+            </div>
 
-                      <i></i>
+            <form id="orderForm">
+                <input class="field" id="name" type="text" placeholder="Họ và tên *" autocomplete="name">
+                <input class="field" id="phone" type="tel" inputmode="numeric" placeholder="Số điện thoại *" autocomplete="tel">
+                <textarea class="field" id="address" rows="3" placeholder="Địa chỉ nhận hàng (thôn/xóm, xã/phường, huyện/quận, tỉnh/thành) *" autocomplete="street-address"></textarea>
+                <button class="submit" id="submitOrderBtn" type="submit">🛒 ĐẶT HÀNG NGAY</button>
+            </form>
+            <p class="note">🔒 Không cần thanh toán trước · Nhận hàng kiểm tra rồi thanh toán · Thông tin được dùng để giao hàng</p>
+        </section>
 
-                      <span class="shop-customers">
-                          <b>9.5K+</b>
-                          <em>khách hàng đã mua</em>
-                      </span>
-                  </div>
-              </div>
-          </div>
+        <section class="section">
+            <h2>🌿 SHAN TUYẾT MỘC CHÂU CÓ GÌ ĐẶC BIỆT?</h2>
+            <div class="feature-grid">
+                <article class="feature"><div class="ico">🍃</div><b>Hương thơm tự nhiên</b><p>Trà có hương thơm tự nhiên, dễ chịu khi pha và thưởng thức.</p></article>
+                <article class="feature"><div class="ico">🫖</div><b>Vị trà đậm đà</b><p>Vị trà rõ, hậu vị dễ chịu, phù hợp thưởng thức hằng ngày.</p></article>
+                <article class="feature"><div class="ico">☕</div><b>Pha nóng hoặc lạnh</b><p>Có thể pha nóng hoặc pha lạnh tùy sở thích.</p></article>
+                <article class="feature"><div class="ico">📦</div><b>Nhận hàng mới thanh toán</b><p>Nhận hàng kiểm tra rồi thanh toán, không cần thanh toán trước.</p></article>
+            </div>
+            <div class="info">
+                <p><b>📋 Thông tin sản phẩm</b></p>
+                <ul>
+                    <li>Tên sản phẩm: Trà Shan Tuyết Mộc Châu.</li>
+                    <li>Khối lượng lựa chọn: 500g / 1kg / 2kg.</li>
+                    <li>Hương vị: thơm, đậm vừa, hậu vị tự nhiên.</li>
+                    <li>Cách dùng: pha nóng hoặc pha lạnh.</li>
+                    <li>Bảo quản: nơi khô ráo, kín mùi.</li>
+                    <li>Thanh toán: nhận hàng kiểm tra rồi thanh toán.</li>
+                </ul>
+            </div>
+        </section>
 
-            <section class="tea-intro">
-                <div class="tea-intro-card">
-                    <h3>🌿 Shan Tuyết Mộc Châu có gì đặc biệt?</h3>
-                    <p>Trà Shan Tuyết là dòng trà có hương thơm tự nhiên, vị trà rõ và hậu vị dễ chịu. Mộc Trà hướng tới sản phẩm dễ uống hằng ngày, phù hợp cả người đã quen uống trà và người mới bắt đầu.</p>
-                    <div class="tea-feature-grid">
-                        <div class="tea-feature"><b>🍃 Hương thơm tự nhiên</b><span>Mùi trà thanh, dễ chịu, không cần thêm hương liệu.</span></div>
-                        <div class="tea-feature"><b>🍵 Vị đậm vừa phải</b><span>Vị trà rõ nhưng vẫn dễ thưởng thức hằng ngày.</span></div>
-                        <div class="tea-feature"><b>💧 Hậu vị dễ chịu</b><span>Sau khi uống vẫn lưu lại cảm giác hậu vị tự nhiên.</span></div>
-                        <div class="tea-feature"><b>🫖 Dễ pha</b><span>Có thể pha ấm nóng hoặc pha lạnh tùy sở thích.</span></div>
-                    </div>
-                </div>
-            </section>
-           
-            <section class="tea-info" id="mo-ta">
-                <h2>📋 Thông tin sản phẩm</h2>
-                <div class="tea-info-box">
-                    <div class="tea-info-row"><span>Tên sản phẩm</span><b>Trà Shan Tuyết Mộc Châu</b></div>
-                    <div class="tea-info-row"><span>Khối lượng</span><b>500g / 1kg / 2kg</b></div>
-                    <div class="tea-info-row"><span>Hương vị</span><b>Thơm • Đậm vừa • Hậu tự nhiên</b></div>
-                    <div class="tea-info-row"><span>Cách dùng</span><b>Pha nóng hoặc pha lạnh</b></div>
-                    <div class="tea-info-row"><span>Bảo quản</span><b>Nơi khô ráo, kín mùi</b></div>
-                    <div class="tea-info-row"><span>Thanh toán</span><b>Nhận hàng kiểm tra rồi thanh toán</b></div>
-                </div>
-                <div class="tea-photo"><img alt="Đóng gói trà Mộc Trà" src="h1.jpg" /></div>
-                <div class="tea-usage">
-                    <h3>🫖 Gợi ý thưởng trà</h3>
-                    <p>Với trà nóng, có thể tráng ấm và tráng trà nhanh trước khi pha để trà bắt đầu nở và tỏa hương. Điều chỉnh lượng trà và thời gian ngâm theo khẩu vị.</p>
-                    <p>Nếu thích uống lạnh, có thể pha trà đậm hơn một chút rồi thêm đá hoặc để nguội và bảo quản mát.</p>
-                    <div class="tea-steps">
-                        <div class="tea-step"><b>1. Làm nóng ấm</b><span>Tráng nhanh ấm và chén bằng nước nóng.</span></div>
-                        <div class="tea-step"><b>2. Cho trà vào ấm</b><span>Điều chỉnh lượng trà theo khẩu vị.</span></div>
-                        <div class="tea-step"><b>3. Rót nước</b><span>Pha vừa đủ và điều chỉnh thời gian ngâm.</span></div>
-                    </div>
-                </div>
-                <div class="tea-photo"><img alt="Pha trà Shan Tuyết" src="h2.jpg" /></div>
-                                <div class="tea-photo"><img alt="Pha trà Shan Tuyết" src="hnew.jpg" /></div>
-            </section>
-           
-            <section class="tea-info">
-                <div class="tea-intro-card">
-                    <h3>🚚 Đặt hàng đơn giản</h3>
-                    <p>Chỉ vài bước để nhận trà tại nhà.</p>
-                    <div class="tea-feature-grid">
-                        <div class="tea-feature"><b>📝 1. Điền thông tin</b><span>Nhập tên, số điện thoại và địa chỉ nhận hàng.</span></div>
-                        <div class="tea-feature"><b>📞 2. Xác nhận đơn</b><span>Mộc Trà liên hệ xác nhận trước khi gửi.</span></div>
-                        <div class="tea-feature"><b>🚚 3. Giao tận nơi</b><span>Đơn hàng được gửi tới địa chỉ bạn cung cấp.</span></div>
-                        <div class="tea-feature"><b>💵 4. Nhận rồi thanh toán</b><span>Thanh toán khi nhận hàng theo hình thức COD.</span></div>
-                    </div>
-                </div>
-            </section>
+        <section class="section images">
+            <h2>🍃 KHÁM PHÁ TRÀ SHAN TUYẾT MỘC CHÂU</h2>
+            <img src="h1.jpg" alt="Cánh trà Shan Tuyết Mộc Châu">
+            <img src="h2.jpg" alt="Pha trà Shan Tuyết Mộc Châu">
+            <img src="hnew.jpg" alt="Trà Shan Tuyết Mộc Châu">
+        </section>
 
-             <div class="product-data">
-                    <div class="deal-price">
-                        <div class="deal-left">
-                            <div class="price-top"><span class="price-label">Giá ưu đãi:</span><strong class="sale-price">200.000đ</strong><span class="price-ticket">🔥</span></div>
-                            <div class="price-sub"><del>400.000đ</del><span>-50%</span></div>
-                        </div>
-                        <div class="deal-right">
-                            <div class="urgency-text">Ưu đãi giờ vàng! Săn ngay!</div>
-                            <div class="countdown deal-countdown" data-minutes="29" id="promoCountdown"><span class="cd-hours">00</span><b>:</b><span class="cd-minutes">29</span><b>:</b><span class="cd-seconds">00</span></div>
-                        </div>
-                    </div>
-                   <!--  <h1>Trà Shan Tuyết đậm vị, thơm hậu tự nhiên</h1>
-                    <div class="ratings"><b>4.9 /5</b><span class="stars">★★★★★</span><a href="#danh-gia">(6)</a><i></i><span>Được nhiều khách hàng lựa chọn</span></div>
-                    <div class="shipping-list">
-                        <div><span class="shipping-icon">🚚</span><span><b>Miễn phí vận chuyển</b><small>Giao hàng tận nơi</small></span></div>
-                        <div><span class="shipping-icon">₫</span><span><b>Thanh toán khi nhận hàng</b><small>Nhận hàng kiểm tra rồi thanh toán</small></span></div>
-                        <div><span class="shipping-icon">✓</span><span><b>Đóng gói cẩn thận</b><small>Kiểm tra sản phẩm trước khi gửi</small></span></div>
-                    </div> -->
-                </div>
+        <section class="tea-reviews" id="danh-gia">
+<h2>⭐ Đánh giá của khách hàng (3245 bình luận)</h2>
+<div class="tea-review-summary"><strong>4.9/5</strong><span class="stars">★★★★★</span><small>Khách hàng đã mua</small></div>
+<div id="teaReviewList">
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">A</span>
+<div><b>Anh A.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>ok ngon và giá cả hợp lý mình cảm nhận trà uống rất đậm đà và thơm</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f2.jpg"/>
+</article>
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">H</span>
+<div><b>Chị H.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>Trà uống không bị quá chát. thơm, ngọt hậu vị lâu. màu tự nhiên mình đã đặt thêm để biếu</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f1.jpg"/>
+</article>
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">M</span>
+<div><b>Anh M.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>Trà rất ngon, khi uống sẽ có vị chát nhẹ, sau ngọt thanh, uống tới nước thứ 3 vẫn ngon, để cả ngày không bị đỏ</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f3.jpg"/>
+</article>
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">T</span>
+<div><b>Chị T.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>Trà rất thơm và ngon, nước trà xanh và thơm ngát. Giao hàng nhiệt tình ạ</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f4.jpg"/>
+</article>
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">N</span>
+<div><b>Anh N.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>Sản phẩm uống rất được nước, ngọt hâu, giá thành quá tốt để trải nghiệm</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f5.jpg"/>
+</article>
+<article class="tea-review">
+<div class="tea-review-user"><span class="tea-review-avatar">L</span>
+<div><b>Chị L.</b><small>✓ Khách hàng đã mua</small><span class="stars">★★★★★</span></div>
+</div>
+<p>Nước xanh ngọt hậu trà ngon non lắm. Trước mua 1 kg uống hết rồi giờ mua thêm 2 kg</p><img alt="Ảnh khách hàng feedback" loading="lazy" src="f6.jpg"/>
+</article>
+</div>
+<div class="tea-shop-proof"><b>✓ Nhiều khách hàng đang quan tâm sản phẩm</b><br/>Feedback thật có thể cập nhật thêm tại đây.</div>
+</section>
 
-             <section class="order-area" id="dat-hang">
-                <div class="order-card">
-                    <div class="order-heading">
-                        <h2>🔥 Chọn gói ưu đãi</h2>
-                        <p>Ưu đãi được áp dụng trực tiếp khi đặt hàng</p>
-                    </div>
-                    <form id="orderForm" onsubmit="return false"><input id="name" name="name" placeholder="Họ và tên" required="" /><input id="phone" name="phone" placeholder="Số điện thoại" required="" type="tel" /><textarea id="address" name="address" placeholder="Địa chỉ nhận hàng" required=""></textarea>
-                        <fieldset class="package-options">
-                            <legend>Chọn gói</legend><label class="package-option"><input data-weight="500g" data-price="130000" name="package" type="radio" value="500g" /><span class="package-copy"><b>500G - Gói dùng thử</b><small>Phù hợp để trải nghiệm</small></span><span class="package-price">130.000đ</span></label><label class="package-option"><input checked="" data-weight="1kg" data-price="200000" name="package" type="radio" value="1kg" /><span class="package-copy"><b>1KG - Gói tiết kiệm ⭐</b><small>Phù hợp dùng hằng ngày</small></span><span class="package-price">200.000đ</span></label><label class="package-option"><input data-weight="2kg" data-price="380000" name="package" type="radio" value="2kg" /><span class="package-copy"><b>2KG - Gói gia đình</b><small>Tiết kiệm hơn</small></span><span class="package-price">380.000đ</span></label>
-                        </fieldset><button class="submit-button" id="submitOrderBtn" type="submit">🔥 ĐẶT HÀNG NGAY</button>
-                        <p class="form-footnote">✓ Không cần thanh toán trước • ✓ Nhận hàng kiểm tra rồi thanh toán</p>
-                    </form>
-                </div>
-            </section>
-
-            <section class="final-cta">
-                <h2>Đặt trà ngay hôm nay</h2>
-                <p>Trà Shan Tuyết Mộc Châu • Nhận hàng kiểm tra rồi thanh toán</p>
-                <!-- <p><b>350.000đ</b></p><a href="#dat-hang">🔥 ĐẶT HÀNG NGAY</a> -->
-            </section>
-        </main>
-        <footer><img alt="Mộc Trà" src="thumb.png" />
-            <h2>MỘC TRÀ</h2>
-            <p>Trà Shan Tuyết cổ thụ • Mộc Châu</p>
-            <br/>
-            <div class="hours">Địa chỉ: Thị Trấn Nông Trường Mộc Châu, Mộc Châu, Sơn la</div>
-            <br/>
-            <div class="hours">Email: trasantuyetmocchau@gmail.com</div>
-            <br/>
-            <div class="hours">Facebook: Nông Sản Mộc Châu Sơn La</div>
-            <br/>
-            <div class="hours">Thời gian làm việc: 8:00 - 22:00</div>
-            <div class="hours">( Tất cả các ngày trong tuần )</div>
-
-        </footer>
-        <!-- <div class="bottom-bar"><a class="buy" href="#dat-hang">🔥 ĐẶT HÀNG NGAY • 350.000đ</a></div> -->
+        <section class="final">
+            <h2>🔥 TRÀ SHAN TUYẾT MỘC CHÂU TỪ 130.000đ</h2>
+            <p>Chọn gói 500G, 1KG hoặc 2KG phù hợp với nhu cầu</p>
+            <a href="#dat-hang">🛒 ĐẶT MUA NGAY</a>
+        </section>
     </div>
 
+    <div class="bottom">
+        <a href="#dat-hang" class="price-mini">Từ 130K</a>
+        <a href="#dat-hang" class="buy-mini">🛒 ĐẶT HÀNG NGAY</a>
+    </div>
 
-    <!-- Popup hoạt động: dùng dữ liệu hoạt động thực tế nếu có -->
-    <div class="social-popup" id="socialPopup" aria-live="polite" aria-atomic="true">
-        <div class="social-popup-icon" id="popupIcon">🍃</div>
-        <div class="social-popup-content">
-            <span class="social-popup-title" id="popupTitle">Khách hàng đang xem sản phẩm</span>
-            <span class="social-popup-text" id="popupText">Trà Shan Tuyết Mộc Châu • vừa cập nhật</span>
+    <div class="success" id="successOverlay" aria-hidden="true">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h2>Đặt hàng thành công!</h2>
+            <p>Cảm ơn bạn. Đơn hàng đã được tiếp nhận. Shop sẽ liên hệ xác nhận thông tin giao hàng trong thời gian sớm nhất.</p>
+            <button type="button" id="continueBtn">Tiếp tục xem sản phẩm</button>
         </div>
-        <button class="social-popup-close" id="popupClose" type="button" aria-label="Đóng">×</button>
-        <div class="social-popup-progress"><i id="popupProgress"></i></div>
     </div>
 
+    <script>
+        const IMG1 = "h.png", IMG2 = "thumb.png", IMG3 = "h1.jpg", IMG4 = "h2.jpg";
+        let current = 0,
+            startX = 0;
+        const track = document.getElementById('track'),
+            slides = [...document.querySelectorAll('.slide')],
+            dots = document.getElementById('dots'),
+            count = document.getElementById('count');
+        slides.forEach((_, i) => {
+            const b = document.createElement('button');
+            b.className = 'dot' + (i === 0 ? ' active' : '');
+            b.onclick = () => go(i, true);
+            dots.appendChild(b)
+        });
 
+        function go(i, animate = true) {
+            current = (i + slides.length) % slides.length;
+            track.style.transition = animate ? 'transform .45s ease' : 'none';
+            track.style.transform = 'translateX(' + (-current * 100) + '%)';
+            document.querySelectorAll('.dot').forEach((d, n) => d.classList.toggle('active', n === current));
+            count.textContent = (current + 1) + '/' + slides.length
+        }
+        document.getElementById('next').onclick = () => {
+            go(current + 1);
+            restartAuto()
+        };
+        document.getElementById('prev').onclick = () => {
+            go(current - 1);
+            restartAuto()
+        };
+        const gallery = document.getElementById('gallery');
+        gallery.addEventListener('touchstart', e => startX = e.touches[0].clientX, {
+            passive: true
+        });
+        gallery.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) go(dx < 0 ? current + 1 : current - 1);
+            restartAuto()
+        }, {
+            passive: true
+        });
+        let auto = setInterval(() => go(current + 1), 4000);
 
-<script id="auto-countdown-gallery">
-(function(){
-  /* ===== COUNTDOWN GIỜ VÀNG: 29:00 giảm dần thật ===== */
-  const countdowns = document.querySelectorAll('.deal-countdown');
-  const duration = 29 * 60;
-  const endAt = Date.now() + duration * 1000;
+        function restartAuto() {
+            clearInterval(auto);
+            auto = setInterval(() => go(current + 1), 4000)
+        }
 
-  function renderCountdown(){
-    let remain = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
-    const h = Math.floor(remain / 3600);
-    const m = Math.floor((remain % 3600) / 60);
-    const sec = remain % 60;
-    countdowns.forEach(el => {
-      const hs=el.querySelector('.cd-hours');
-      const ms=el.querySelector('.cd-minutes');
-      const ss=el.querySelector('.cd-seconds');
-      if(hs) hs.textContent=String(h).padStart(2,'0');
-      if(ms) ms.textContent=String(m).padStart(2,'0');
-      if(ss) ss.textContent=String(sec).padStart(2,'0');
-      if(remain <= 60) el.classList.add('last-five');
-    });
-    if(remain > 0) requestAnimationFrame(renderCountdown);
-    else {
-      countdowns.forEach(el=>{
-        el.querySelector('.cd-hours') && (el.querySelector('.cd-hours').textContent='00');
-        el.querySelector('.cd-minutes') && (el.querySelector('.cd-minutes').textContent='00');
-        el.querySelector('.cd-seconds') && (el.querySelector('.cd-seconds').textContent='00');
-      });
-    }
-  }
-  renderCountdown();
+        let endAt = Date.now() + 29 * 60 * 1000;
 
-  /* ===== SLIDE ẢNH TỰ CHUYỂN LẦN LƯỢT ===== */
-  const gallery = document.getElementById('productGallery');
-  const track = document.getElementById('galleryTrack');
-  const slides = track ? Array.from(track.querySelectorAll('.gallery-slide')) : [];
-  const dots = Array.from(document.querySelectorAll('.gallery-dot'));
-  const count = document.getElementById('imageCount');
-  const prev = document.querySelector('.gallery-prev');
-  const next = document.querySelector('.gallery-next');
-  if(!gallery || !track || slides.length < 2) return;
+        function timerTick() {
+            let left = Math.max(0, endAt - Date.now()),
+                sec = Math.floor(left / 1000),
+                m = Math.floor(sec / 60),
+                s = sec % 60;
+            document.getElementById('mm').textContent = String(m).padStart(2, '0');
+            document.getElementById('ss').textContent = String(s).padStart(2, '0');
+            if (left <= 0) endAt = Date.now() + 29 * 60 * 1000
+        }
+        setInterval(timerTick, 250);
+        timerTick();
 
-  let index = 0;
-  let autoTimer = null;
+        function scrollToOrder() {
+            document.getElementById('dat-hang').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            })
+        }
+        document.querySelectorAll('.pkg').forEach(label => {
+            const radio = label.querySelector('input');
+            label.addEventListener('click', () => {
+                document.querySelectorAll('.pkg').forEach(x => x.classList.remove('selected'));
+                label.classList.add('selected');
+                radio.checked = true;
+                updateSummary()
+            })
+        });
 
-  function goTo(i, animate=true){
-    index=(i+slides.length)%slides.length;
-    track.style.transition = animate ? 'transform .5s ease' : 'none';
-    track.style.transform = 'translate3d(' + (-index*100) + '%,0,0)';
-    dots.forEach((d,n)=>d.classList.toggle('active',n===index));
-    if(count) count.textContent=(index+1)+'/'+slides.length;
-  }
-  function startAuto(){
-    clearInterval(autoTimer);
-    autoTimer=setInterval(()=>goTo(index+1,true),4000);
-  }
-  if(next) next.addEventListener('click',()=>{goTo(index+1,true);startAuto();});
-  if(prev) prev.addEventListener('click',()=>{goTo(index-1,true);startAuto();});
-  dots.forEach((d,n)=>d.addEventListener('click',()=>{goTo(n,true);startAuto();}));
+        function money(n) {
+            return Number(n).toLocaleString('vi-VN') + 'đ'
+        }
 
-  let startX=0, dragging=false;
-  gallery.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;dragging=true;},{passive:true});
-  gallery.addEventListener('touchend',e=>{
-    if(!dragging) return;
-    const dx=e.changedTouches[0].clientX-startX;
-    dragging=false;
-    if(Math.abs(dx)>40) goTo(dx<0?index+1:index-1,true);
-    startAuto();
-  },{passive:true});
+        function updateSummary() {
+            const r = document.querySelector('input[name="package"]:checked');
+            if (!r) return;
+            const price = +r.dataset.price,
+                ship = +r.dataset.shipping,
+                n = r.value;
+            document.getElementById('summaryPackage').textContent = r.closest('.pkg').querySelector('.pkg-main b').textContent;
+            document.getElementById('summaryPrice').textContent = money(price);
+            document.getElementById('summaryShip').textContent = ship ? money(ship) : 'Miễn phí';
+            document.getElementById('summaryTotal').textContent = money(price + ship);
+        }
+        updateSummary();
 
-  goTo(0,false);
-  startAuto();
-})();
-</script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbwGYaRJSAjmxNXQEs2dmpKGJkdd2P7TuP8ateEQvxtWBqONFXx74i5jqjiX1r2e9z33/exec";
 
-<script>
-(function () {
-  function showSuccessPopup() {
-    var overlay = document.getElementById('orderSuccessOverlay');
-    if (!overlay) return;
-    overlay.classList.add('show');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
+        function validPhone(v) {
+            return /^(0)(3|5|7|8|9)[0-9]{8}$/.test(String(v).replace(/\s+/g, '').replace(/^\+84/, '0'))
+        }
 
-  function closeSuccessPopup() {
-    var overlay = document.getElementById('orderSuccessOverlay');
-    if (!overlay) return;
-    overlay.classList.remove('show');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
+        function submitToSheet(data) {
+            return new Promise((resolve, reject) => {
+                const iframe = document.createElement('iframe');
+                iframe.name = 'orderFrame_' + Date.now();
+                iframe.style.cssText = 'position:fixed;width:1px;height:1px;left:-9999px;opacity:0;border:0';
+                document.body.appendChild(iframe);
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = API_URL;
+                form.target = iframe.name;
+                form.style.display = 'none';
+                Object.entries(data).forEach(([k, v]) => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = k;
+                    input.value = v == null ? '' : v;
+                    form.appendChild(input)
+                });
+                document.body.appendChild(form);
+                let done = false;
+                const cleanup = () => {
+                    if (form.parentNode) form.remove();
+                    if (iframe.parentNode) iframe.remove()
+                };
+                iframe.onload = () => {
+                    if (done) return;
+                    done = true;
+                    setTimeout(() => {
+                        cleanup();
+                        resolve()
+                    }, 500)
+                };
+                setTimeout(() => {
+                    if (done) return;
+                    done = true;
+                    cleanup();
+                    reject(new Error('Máy chủ phản hồi quá lâu. Vui lòng thử lại.'))
+                }, 20000);
+                form.submit();
+            });
+        }
+        document.getElementById('orderForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim(),
+                phone = document.getElementById('phone').value.trim(),
+                address = document.getElementById('address').value.trim(),
+                btn = document.getElementById('submitOrderBtn'),
+                r = document.querySelector('input[name="package"]:checked');
+            if (!name) {
+                alert('Vui lòng nhập họ tên.');
+                document.getElementById('name').focus();
+                return
+            }
+            if (!phone) {
+                alert('Vui lòng nhập số điện thoại.');
+                document.getElementById('phone').focus();
+                return
+            }
+            if (!validPhone(phone)) {
+                alert('Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.');
+                document.getElementById('phone').focus();
+                return
+            }
+            if (!address) {
+                alert('Vui lòng nhập địa chỉ nhận hàng.');
+                document.getElementById('address').focus();
+                return
+            }
+            const price = +r.dataset.price,
+                ship = +r.dataset.shipping,
+                n = r.value;
+            btn.disabled = true;
+            btn.textContent = '⏳ ĐANG GỬI ĐƠN...';
+            const params = new URLSearchParams(location.search);
+            const order = {
+                name,
+                phone,
+                address,
+                product: 'Trà Shan Tuyết Mộc Châu',
+                weight: r.dataset.weight || n,
+                quantity: 1,
+                unitPrice: price,
+                shippingFee: ship,
+                total: price + ship,
+                source: params.get('utm_source') || '',
+                medium: params.get('utm_medium') || '',
+                campaign: params.get('utm_campaign') || '',
+                content: params.get('utm_content') || '',
+                pageUrl: location.href
+            };
+            try {
+                await submitToSheet(order);
+                if (typeof window.trackKepgaLead === 'function') window.trackKepgaLead();
+                document.getElementById('successOverlay').classList.add('show');
+                document.getElementById('successOverlay').setAttribute('aria-hidden', 'false');
+                e.target.reset();
+                document.querySelector('.pkg').click();
+                updateSummary();
+            } catch (err) {
+                alert(err.message || 'Không thể gửi đơn hàng. Vui lòng thử lại.')
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🛒 ĐẶT HÀNG NGAY'
+            }
+        });
+        document.getElementById('continueBtn').onclick = () => {
+            document.getElementById('successOverlay').classList.remove('show');
+            document.getElementById('successOverlay').setAttribute('aria-hidden', 'true')
+        };
+    </script>
 
-  // Meta Pixel: lấy gói khách chọn để gửi đúng giá trị chuyển đổi.
-  function getMetaOrderData() {
-    var selected = document.querySelector('input[name="package"]:checked');
-    var weight = selected ? (selected.dataset.weight || selected.value || '1kg') : '1kg';
-    var unitPrice = selected ? Number(selected.dataset.price || 200000) : 200000;
-    // order.js hiện đặt số lượng mặc định là 1; nếu sau này thêm bộ chọn số lượng,
-    // cập nhật phần này để đọc số lượng thực tế.
-    var quantity = 1;
-    var total = unitPrice * quantity;
-    return {
-      content_name: 'Trà Shan Tuyết Mộc Châu - ' + weight,
-      content_type: 'product',
-      content_ids: ['tra-shan-tuyet-moc-chau-' + weight],
-      value: total,
-      currency: 'VND',
-      num_items: quantity
-    };
-  }
-
-  // ViewContent: xem sản phẩm.
-  if (typeof window.fbq === 'function') {
-    window.fbq('track', 'ViewContent', {
-      content_name: 'Trà Shan Tuyết Mộc Châu',
-      content_type: 'product',
-      content_ids: ['tra-shan-tuyet-moc-chau'],
-      value: 200000,
-      currency: 'VND'
-    });
-  }
-
-  // InitiateCheckout: chỉ ghi nhận khi form được submit và thông tin cơ bản hợp lệ.
-  var orderFormForPixel = document.getElementById('orderForm');
-  if (orderFormForPixel) {
-    orderFormForPixel.addEventListener('submit', function () {
-      var nameEl = document.getElementById('name');
-      var phoneEl = document.getElementById('phone');
-      var addressEl = document.getElementById('address');
-      if (!nameEl || !phoneEl || !addressEl) return;
-      if (!nameEl.value.trim() || !phoneEl.value.trim() || !addressEl.value.trim()) return;
-      var phone = phoneEl.value.trim().replace(/\s+/g, '').replace(/^\+84/, '0');
-      if (!/^(0)(3|5|7|8|9)[0-9]{8}$/.test(phone)) return;
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'InitiateCheckout', getMetaOrderData());
+    <script>
+    (function () {
+      function getMetaOrderData() {
+        var selected = document.querySelector('input[name="package"]:checked');
+        var quantity = selected ? Number(selected.value || 1) : 1;
+        var unitPrice = selected ? Number(selected.dataset.price || 49000) : 49000;
+        var shipping = selected ? Number(selected.dataset.shipping || 0) : 0;
+        return {
+          content_name: 'Trà Shan Tuyết Mộc Châu - ' + quantity,
+          content_type: 'product',
+          content_ids: ['tra-shan-tuyet-moc-chau-' + quantity],
+          value: unitPrice + shipping,
+          currency: 'VND',
+          num_items: quantity
+        };
       }
-    }, true);
-  }
 
-  // order.js chỉ gọi hàm này sau khi iframe nhận response từ Google Apps Script.
-  // Lưu ý: iframe load xác nhận đã có response, không xác minh nội dung Google Sheet.
-  window.showOrderSuccessUI = function () {
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead', getMetaOrderData());
-    }
-    showSuccessPopup();
-  };
+      var orderForm = document.getElementById('orderForm');
+      if (orderForm) {
+        orderForm.addEventListener('submit', function () {
+          var nameEl = document.getElementById('name');
+          var phoneEl = document.getElementById('phone');
+          var addressEl = document.getElementById('address');
+          if (!nameEl || !phoneEl || !addressEl) return;
+          if (!nameEl.value.trim() || !phoneEl.value.trim() || !addressEl.value.trim()) return;
+          var phone = phoneEl.value.trim().replace(/\s+/g, '').replace(/^\+84/, '0');
+          if (!/^(0)(3|5|7|8|9)[0-9]{8}$/.test(phone)) return;
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'InitiateCheckout', getMetaOrderData());
+          }
+        }, true);
+      }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var continueBtn = document.getElementById('continueShoppingBtn');
-    if (continueBtn) {
-      continueBtn.addEventListener('click', closeSuccessPopup);
-    }
-  });
-})();
-</script>
-<script src="order.js"></script>
-<script src="traffic.js"></script>
+      // Lead is recorded only after the order submission receives a response.
+      window.trackKepgaLead = function () {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', getMetaOrderData());
+        }
+      };
+    })();
+    </script>
+
 </body>
 
 </html>
